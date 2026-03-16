@@ -1,0 +1,465 @@
+/* ========================================
+   JANISHAMMER MASTER THEME
+   Central control for all brands
+   Version 1.0
+   ======================================== */
+
+/* ----------------------------------------
+   DESIGN TOKENS (YOUR preferences)
+   ---------------------------------------- */
+
+:root {
+    /* Colors - Replace with YOUR actual colors */
+    --j-primary: #e34c26;        /* Your brand orange */
+    --j-secondary: #333333;       /* Your dark gray */
+    --j-accent: #4a90e2;          /* Your blue */
+    
+    /* Grey/Olive palette for undecided elements */
+    --j-neutral-100: #f8f9fa;
+    --j-neutral-300: #dee2e6;
+    --j-neutral-500: #adb5bd;
+    --j-neutral-700: #495057;
+    --j-neutral-900: #212529;
+    --j-olive: #808000;
+    
+    /* Typography */
+    --j-font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --j-font-heading: 'Montserrat', sans-serif;
+    --j-font-body: 'Montserrat', sans-serif;
+    
+    /* Font weights available */
+    --j-weight-light: 300;
+    --j-weight-regular: 400;
+    --j-weight-medium: 500;
+    --j-weight-semibold: 600;
+    --j-weight-bold: 700;
+    --j-weight-extrabold: 800;
+    
+    /* REM-based sizing scale */
+    --j-text-xs: 0.75rem;    /* 12px */
+    --j-text-sm: 0.875rem;   /* 14px */
+    --j-text-base: 1rem;      /* 16px */
+    --j-text-lg: 1.125rem;    /* 18px */
+    --j-text-xl: 1.25rem;     /* 20px */
+    --j-text-2xl: 1.5rem;     /* 24px */
+    --j-text-3xl: 2rem;       /* 32px */
+    --j-text-4xl: 2.5rem;     /* 40px */
+    --j-text-5xl: 3rem;       /* 48px */
+    
+    /* Spacing (based on 1rem = 16px) */
+    --j-space-1: 0.25rem;     /* 4px */
+    --j-space-2: 0.5rem;      /* 8px */
+    --j-space-3: 0.75rem;     /* 12px */
+    --j-space-4: 1rem;        /* 16px */
+    --j-space-5: 1.25rem;     /* 20px */
+    --j-space-6: 1.5rem;      /* 24px */
+    --j-space-8: 2rem;        /* 32px */
+    --j-space-10: 2.5rem;     /* 40px */
+    --j-space-12: 3rem;       /* 48px */
+    --j-space-16: 4rem;       /* 64px */
+    
+    /* Borders */
+    --j-radius-sm: 8px;
+    --j-radius-md: 16px;      /* Your preferred 16px round */
+    --j-radius-lg: 24px;
+    --j-radius-full: 9999px;
+    
+    /* Shadows */
+    --j-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);  /* Your image shadow */
+    --j-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --j-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Layout */
+    --j-container-max: 1280px;
+    --j-container-padding: clamp(1rem, 5vw, 2rem);
+    
+    /* Breakpoints (mobile first) */
+    --j-bp-mobile: 480px;
+    --j-bp-tablet: 768px;
+    --j-bp-desktop: 1024px;
+    --j-bp-wide: 1280px;
+    
+    /* Transitions */
+    --j-transition-fast: 200ms ease;
+    --j-transition-base: 300ms ease;  /* Your 300ms standard */
+    --j-transition-slow: 500ms ease;
+}
+
+/* ----------------------------------------
+   BASE STYLES
+   ---------------------------------------- */
+
+html {
+    font-size: 16px;  /* Base for REM */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--j-font-body);
+    font-weight: var(--j-weight-regular);
+    color: var(--j-neutral-900);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Crystal clear background system */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://your-background-image.com/bg.jpg') center/cover fixed;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+/* Content containers with crystal clear effect */
+.j-container, 
+.j-card,
+.j-hero {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--j-radius-md);
+}
+
+/* ----------------------------------------
+   TYPOGRAPHY
+   ---------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--j-font-heading);
+    font-weight: var(--j-weight-semibold);  /* Never more than 600 */
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: var(--j-space-4);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Your text shadow */
+}
+
+h1 { font-size: var(--j-text-4xl); }
+h2 { font-size: var(--j-text-3xl); }
+h3 { font-size: var(--j-text-2xl); }
+h4 { font-size: var(--j-text-xl); }
+h5 { font-size: var(--j-text-lg); }
+h6 { font-size: var(--j-text-base); }
+
+p {
+    margin-bottom: var(--j-space-4);
+    font-size: var(--j-text-base);
+}
+
+/* ----------------------------------------
+   LAYOUT
+   ---------------------------------------- */
+
+.j-container {
+    max-width: var(--j-container-max);
+    margin: 0 auto;
+    padding: 0 var(--j-container-padding);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Grid system */
+.j-grid {
+    display: grid;
+    gap: var(--j-space-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+/* Flex utilities */
+.j-flex {
+    display: flex;
+    gap: var(--j-space-4);
+    flex-wrap: wrap;
+}
+
+.j-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--j-space-4);
+}
+
+/* ----------------------------------------
+   CARDS - Your design
+   ---------------------------------------- */
+
+.j-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--j-radius-md);  /* 16px corners */
+    padding: var(--j-space-6);
+    box-shadow: var(--j-shadow-md);
+    transition: transform var(--j-transition-base);
+}
+
+.j-card:hover {
+    transform: scale(1.02);  /* Your scale on hover */
+    box-shadow: var(--j-shadow-lg);
+}
+
+/* Images inside cards follow your rules */
+.j-card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--j-radius-sm);
+    box-shadow: var(--j-shadow-sm);  /* 0,2,5 black/grey shadow */
+}
+
+/* ----------------------------------------
+   BUTTONS - Your design
+   ---------------------------------------- */
+
+.j-btn {
+    display: inline-block;
+    background: var(--j-primary);
+    color: white;
+    font-family: var(--j-font-primary);
+    font-weight: var(--j-weight-medium);
+    font-size: var(--j-text-base);
+    padding: var(--j-space-3) var(--j-space-6);
+    border: none;
+    border-radius: var(--j-radius-md);  /* 16px round */
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform var(--j-transition-fast);
+    box-shadow: var(--j-shadow-sm);
+}
+
+.j-btn:hover {
+    transform: scale(1.05);  /* Your scale effect */
+    background: var(--j-secondary);
+}
+
+.j-btn-secondary {
+    background: var(--j-neutral-500);
+}
+
+.j-btn-secondary:hover {
+    background: var(--j-neutral-700);
+}
+
+/* ----------------------------------------
+   NAVIGATION - Your design
+   ---------------------------------------- */
+
+.j-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--j-space-4) var(--j-container-padding);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.j-nav-brand {
+    font-size: var(--j-text-xl);
+    font-weight: var(--j-weight-bold);
+    color: var(--j-primary);
+    text-decoration: none;
+}
+
+.j-nav-links {
+    display: flex;
+    gap: var(--j-space-6);
+    justify-content: center;
+    flex: 1;
+}
+
+.j-nav-links a {
+    color: var(--j-neutral-900);
+    text-decoration: none;
+    font-weight: var(--j-weight-medium);
+    transition: color var(--j-transition-fast);
+}
+
+.j-nav-links a:hover {
+    color: var(--j-primary);
+}
+
+.j-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: var(--j-text-2xl);
+    cursor: pointer;
+    color: var(--j-primary);
+    z-index: 101;
+}
+
+/* Mobile menu slide-in from right */
+.j-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--j-space-8) var(--j-space-6);
+    transition: right var(--j-transition-base);
+    z-index: 1000;
+    box-shadow: var(--j-shadow-lg);
+}
+
+.j-mobile-menu.active {
+    right: 0;
+}
+
+.j-mobile-menu a {
+    display: block;
+    padding: var(--j-space-3) 0;
+    color: var(--j-neutral-900);
+    text-decoration: none;
+    font-size: var(--j-text-lg);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {  /* Your breakpoint 3 and 4 */
+    .j-nav-links {
+        display: none;
+    }
+    
+    .j-hamburger {
+        display: block;
+    }
+}
+
+/* ----------------------------------------
+   HERO SECTION - Your scroll effects
+   ---------------------------------------- */
+
+.j-hero {
+    padding: var(--j-space-12) 0;
+    text-align: center;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all var(--j-transition-base);
+}
+
+.j-hero.slide-out {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+/* Scroll reveal animation */
+.j-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--j-transition-base);
+}
+
+.j-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------------------------
+   FORMS
+   ---------------------------------------- */
+
+.j-form-group {
+    margin-bottom: var(--j-space-4);
+}
+
+.j-input {
+    width: 100%;
+    padding: var(--j-space-3);
+    border: 1px solid var(--j-neutral-300);
+    border-radius: var(--j-radius-md);  /* 16px round */
+    font-family: var(--j-font-body);
+    font-size: var(--j-text-base);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.j-input:focus {
+    outline: none;
+    border-color: var(--j-primary);
+    box-shadow: var(--j-shadow-sm);
+}
+
+/* ----------------------------------------
+   IMAGES (non-background)
+   ---------------------------------------- */
+
+img:not([class*="background"]):not([class*="bg-"]) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--j-radius-sm);
+    box-shadow: var(--j-shadow-sm);  /* Your 0,2,5 shadow */
+}
+
+/* ----------------------------------------
+   UTILITIES
+   ---------------------------------------- */
+
+/* Grey/Olive for undecided elements */
+.j-neutral {
+    background: var(--j-neutral-500);
+    color: white;
+}
+
+.j-olive {
+    background: var(--j-olive);
+    color: white;
+}
+
+/* Spacing utilities */
+.j-mt-1 { margin-top: var(--j-space-1); }
+.j-mt-2 { margin-top: var(--j-space-2); }
+.j-mt-4 { margin-top: var(--j-space-4); }
+.j-mt-6 { margin-top: var(--j-space-6); }
+.j-mt-8 { margin-top: var(--j-space-8); }
+
+.j-mb-1 { margin-bottom: var(--j-space-1); }
+.j-mb-2 { margin-bottom: var(--j-space-2); }
+.j-mb-4 { margin-bottom: var(--j-space-4); }
+.j-mb-6 { margin-bottom: var(--j-space-6); }
+.j-mb-8 { margin-bottom: var(--j-space-8); }
+
+.j-p-4 { padding: var(--j-space-4); }
+.j-p-6 { padding: var(--j-space-6); }
+.j-p-8 { padding: var(--j-space-8); }
+
+/* Text utilities */
+.j-text-center { text-align: center; }
+.j-text-left { text-align: left; }
+.j-text-right { text-align: right; }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .j-hide-mobile { display: none; }
+}
+
+@media (min-width: 769px) {
+    .j-hide-desktop { display: none; }
+}
