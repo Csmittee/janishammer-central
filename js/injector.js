@@ -9,107 +9,92 @@
     // ===== CONFIGURATION =====
     // Tomorrow you'll replace this with CSV import
     const BRANDS = {
-        flow: {
-            name: "Janis Flow",
-            primary: "#D4E157",      // Lemon Zest
-            secondary: "#AED581",     // Green Flow
-            accent: "#33691E",        // Deep Energy
-            font: "'Sora', sans-serif",
-            fontWeight: "300..700",
-            bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773775009/janis_only.png",
-            logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772664/Janis-flow-logo.png",
-            logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772664/Janis-flow-logo.png",
-            tagline: "Let's flow!",
-            contactEmail: "info@janishammer.com",
-            domain: "flow.janishammer.com",
-            social: {
-                facebook: "#",
-                instagram: "#",
-                youtube: "#",
-                tiktok: "#"
-            }
-        },
-        jade: {
-            name: "Jade Coffee",
-            primary: "#6F4E37",       // Coffee Bean
-            secondary: "#C4A484",      // Warm Latte
-            accent: "#A67B5B",         // Aged Patina
-            font: "'Outfit', sans-serif",
-            fontWeights: "300..700",
-            bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774756/Jade_only.png",
-            logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774149/Jade-logo-original.png",
-            logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774149/Jade-logo-original.png",
-            tagline: "Taste of Heaven",
-            contactEmail: "info@janishammer.com",
-            domain: "jade.janishammer.com",
-            social: {
-                facebook: "#",
-                instagram: "#",
-                youtube: "#",
-                tiktok: "#"
-            }
-        },
-        daje: {
-            name: "Daje Games",
-            primary: "#000000",        // Panda Black
-            secondary: "#FFB6C1",       // Playful Pink
-            accent: "#D4AF37",          // Gold Crown
-            font: "'Quicksand', sans-serif",
-            fontWeights: "400;500;600",
-            bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774844/Daje_only.png",
-            logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
-            logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
-            tagline: "Happiness you can catch",
-            contactEmail: "info@janishammer.com",
-            domain: "daje.janishammer.com",
-            social: {
-                facebook: "#",
-                instagram: "#",
-                youtube: "#",
-                tiktok: "#"
-            }
-        },
-        iflex: {
-            name: "I-Flex Pilates",
-            primary: "#1A1A1A",        // Cat Black
-            secondary: "#FFD700",       // Yellow Eyes
-            accent: "#FFFFFF",          // Pure White
-            font: "'Inter', sans-serif",
-            fontWeights: "300..700",
-            bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773775103/I_flex_only.png",
-            logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768378/I-Flex_main_no_bg.svg",
-            logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768378/I-Flex_main_no_bg.svg",
-            tagline: "A healthy lifestyle",
-            contactEmail: "info@i-flexthailand.com",
-            domain: "i-flexthailand.com",
-            social: {
-                facebook: "#",
-                instagram: "#",
-                youtube: "#",
-                tiktok: "#"
-            }
-        },
-        janishammer: {
-            name: "Janis Hammer",
-            primary: "#E34C26",        // Warm Orange
-            secondary: "#2C3E50",       // Deep Strength
-            accent: "#F4D03F",          // Surprise Gold
-            font: "'Inter', sans-serif",
-            fontWeights: "300..700",
-            bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774928/All-logo.png",
-            logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773567285/Janis_icon_trans.png",
-            logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773567285/Janis_icon.png",
-            tagline: "We create lifestyle",
-            contactEmail: "info@janishammer.com",
-            domain: "janishammer.com",
-            social: {
-                facebook: "#",
-                instagram: "#",
-                youtube: "#",
-                tiktok: "#"
-            }
-        }
-    };
+    flow: {
+        name: "Janis Flow",
+        primary: "#D4E157",      // Lemon Zest
+        secondary: "#AED581",     // Green Flow
+        accent: "#33691E",        // Deep Energy
+        font: "'Sora', sans-serif",
+        bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773775009/janis_only.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772664/Janis-flow-logo.png",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772664/Janis-flow-logo.png",
+        favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772671/Janis-flow-logo-s.png",
+        tagline: "Lets flow!",
+        heroHeading: "Lets flow with us",
+        heroSubheading: "We proudly present Brand X skateboard deck from USA and Outride surfskate from Italy -- Its value grow over time!",
+        products: ["Skateboards", "Surfskates", "Accessories"],
+        contactEmail: "info@janishammer.com",
+        domain: "flow.janishammer.com"
+    },
+    jade: {
+        name: "Jade Coffee",
+        primary: "#6F4E37",       // Coffee Bean
+        secondary: "#C4A484",      // Warm Latte
+        accent: "#A67B5B",         // Aged Patina
+        font: "'Outfit', sans-serif",
+        bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774756/Jade_only.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774149/Jade-logo-original.png",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774149/Jade-logo-original.png",
+        favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774160/Jade-original-logo_40_x_40_px.png",
+        tagline: "Taste of heaven",
+        heroHeading: "We produce coffee capsule you love",
+        heroSubheading: "Best select bean, roast with love. We value safe and taste pack in capsule for you",
+        products: ["Ethiopian Blend", "Morning Roast", "Limited Reserve"],
+        contactEmail: "info@janishammer.com",
+        domain: "jade.janishammer.com"
+    },
+    daje: {
+        name: "Daje Games",
+        primary: "#000000",        // Panda Black
+        secondary: "#FFB6C1",       // Playful Pink
+        accent: "#D4AF37",          // Gold Crown
+        font: "'Quicksand', sans-serif",
+        bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774844/Daje_only.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
+        favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773700/Daje-logo-focus.png",
+        tagline: "Happiness you can catch",
+        heroHeading: "We offer innovation as leader in Claw machine design and production",
+        heroSubheading: "Call us to make your idea come true",
+        products: ["Claw Machines", "Prizes", "Parts", "Service"],
+        contactEmail: "info@janishammer.com",
+        domain: "daje.janishammer.com"
+    },
+    iflex: {
+        name: "I-Flex Pilates",
+        primary: "#1A1A1A",        // Cat Black
+        secondary: "#FFD700",       // Yellow Eyes
+        accent: "#FFFFFF",          // Pure White
+        font: "'Montserrat', sans-serif",
+        bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773775103/I_flex_only.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768378/I-Flex_main_no_bg.svg",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768378/I-Flex_main_no_bg.svg",
+        favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768489/Original.png",
+        tagline: "A healthy lifestyle",
+        heroHeading: "5 Years tested in studio, Power by Adjust body China",
+        heroSubheading: "We help you own your dream studio, whether you do it for fun or for life!",
+        products: ["Reformer", "Cadillac", "Barrel", "Chair"],
+        contactEmail: "info@i-flexthailand.com",
+        domain: "i-flexthailand.com"
+    },
+    janishammer: {
+        name: "Janis Hammer",
+        primary: "#E34C26",        // Warm Orange
+        secondary: "#2C3E50",       // Deep Strength
+        accent: "#F4D03F",          // Surprise Gold
+        font: "'Inter', sans-serif",
+        bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774928/All-logo.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773567285/Janis_icon_trans.png",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773567285/Janis_icon.png",
+        favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773567553/favicon-32x32.png",
+        tagline: "We create lifestyle",
+        heroHeading: "Welcome to our lifestyle!",
+        heroSubheading: "Life style that create strenght, wisdom, and peace",
+        products: ["Brands", "Philosophy", "Contact"],
+        contactEmail: "info@janishammer.com",
+        domain: "janishammer.com"
+    }
+};      
 
     // ===== DETECT CURRENT BRAND =====
     function getCurrentBrand() {
@@ -710,7 +695,26 @@
         `;
         document.head.appendChild(style);
     }
-
+// ===== FAVICON =====
+function setFavicon() {
+    if (!config.favicon) return;
+    
+    // Remove any existing favicons
+    document.querySelectorAll('link[rel*="icon"]').forEach(el => el.remove());
+    
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/png';
+    favicon.href = config.favicon;
+    document.head.appendChild(favicon);
+    
+    // Also add apple touch icon
+    const appleIcon = document.createElement('link');
+    appleIcon.rel = 'apple-touch-icon';
+    appleIcon.href = config.favicon;
+    document.head.appendChild(appleIcon);
+}
+    
     // ===== BUILD NAVBAR HTML =====
     function buildNavbar() {
         return `
