@@ -125,7 +125,7 @@ window.CURRENT_BRAND = (function() {
             z-index: 0;
         }
         
-        .navbar, .hero, .content, .footer { position: relative; z-index: 2; }
+        .hero, .content, .footer { position: relative; z-index: 2; }
         
         :root {
             --primary: ${config.primary};
@@ -135,7 +135,7 @@ window.CURRENT_BRAND = (function() {
         
         /* ===== NAVBAR STYLES ===== */
         .navbar {
-            position: fixed;
+            position: Sticky;
             top: 0;
             left: 0;
             width: 100%;
@@ -157,14 +157,7 @@ window.CURRENT_BRAND = (function() {
             gap: 1rem;
         }
 
-        /* Add at the end of your navbar styles */
-        .nav-container {
-            border: 2px solid red !important;  /* See actual container width */
-        }
-        
-        .nav-left, .nav-center, .nav-right {
-            border: 1px solid blue !important; /* See each column */
-        }
+       
 
 
         .nav-left img { height: 40px; width: auto; }
