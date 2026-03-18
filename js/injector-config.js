@@ -150,6 +150,7 @@ window.CURRENT_BRAND = (function() {
         }
         
         .nav-container {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             display: grid;
