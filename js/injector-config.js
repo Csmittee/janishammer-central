@@ -158,7 +158,17 @@ window.CURRENT_BRAND = (function() {
             align-items: center;
             gap: 1rem;
         }
+
+        /* Add at the end of your navbar styles */
+        .nav-container {
+            border: 2px solid red !important;  /* See actual container width */
+        }
         
+        .nav-left, .nav-center, .nav-right {
+            border: 1px solid blue !important; /* See each column */
+        }
+
+
         .nav-left img { height: 40px; width: auto; }
         .nav-menu { display: flex; list-style: none; gap: 2rem; justify-content: center; }
         .nav-link {
