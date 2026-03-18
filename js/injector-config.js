@@ -144,9 +144,7 @@ window.CURRENT_BRAND = (function() {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;            
+                       
         }
         
         .nav-container {
