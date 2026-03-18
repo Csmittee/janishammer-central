@@ -137,11 +137,16 @@ window.CURRENT_BRAND = (function() {
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
             padding: 0.75rem 2rem;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;            
         }
         
         .nav-container {
