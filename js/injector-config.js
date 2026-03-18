@@ -125,7 +125,7 @@ window.CURRENT_BRAND = (function() {
             z-index: 0;
         }
         
-        ., .hero, .content, .footer { position: relative; z-index: 2; }
+        .navbar, .hero, .content, .footer { position: relative; z-index: 2; }
         
         :root {
             --primary: ${config.primary};
