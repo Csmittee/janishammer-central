@@ -467,7 +467,7 @@
                     </div>
                     <div class="nav-right">
                         <div class="language-selector">
-                            <span class="active">EN</span> | <span>Ina</span>
+                            <span class="active">EN</span> | <span>Th</span>
                         </div>
                         <div class="hamburger" id="janishammerHamburger">
                             <span></span><span></span><span></span>
