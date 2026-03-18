@@ -109,6 +109,8 @@ window.CURRENT_BRAND = (function() {
             background-position: center;
             min-height: 100vh;
             position: relative;
+            padding-top: 80px;
+ 
         }
         
         body::before {
@@ -123,7 +125,7 @@ window.CURRENT_BRAND = (function() {
             z-index: 0;
         }
         
-        .navbar, .hero, .content, .footer { position: relative; z-index: 2; }
+        ., .hero, .content, .footer { position: relative; z-index: 2; }
         
         :root {
             --primary: ${config.primary};
@@ -133,7 +135,7 @@ window.CURRENT_BRAND = (function() {
         
         /* ===== NAVBAR STYLES ===== */
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
             z-index: 1000;
             padding: 0.75rem 2rem;
