@@ -135,7 +135,7 @@ window.CURRENT_BRAND = (function() {
         
         /* ===== NAVBAR STYLES ===== */
         .navbar {
-            position: Sticky;
+            position: sticky;
             top: 0;
             left: 0;
             width: 100%;
