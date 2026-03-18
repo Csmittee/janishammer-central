@@ -36,59 +36,63 @@
 
     // ===== BUILD NAVBAR (uses window.BRANDS from config) =====
     function buildNavbar() {
-        const brand = window.CURRENT_BRAND || 'janishammer';
-        const config = window.BRANDS ? window.BRANDS[brand] : null;
-        
-        if (!config) return '';
-        
-        return `
-            <nav class="navbar">
-                <div class="nav-container">
-                    <div class="nav-left">
-                        <img src="${config.logoLight}" alt="${config.name}">
+    const brand = window.CURRENT_BRAND || 'janishammer';
+    const config = window.BRANDS ? window.BRANDS[brand] : null;
+    
+    if (!config) return '';
+    
+    return `
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <img src="${config.logoLight}" alt="${config.name}">
+                </div>
+                
+                <div class="nav-center">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown">
+                                <a href="https://flow.janishammer.com" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                                <a href="https://daje.janishammer.com" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                                <a href="https://i-flexthailand.com" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                                <a href="https://jade.janishammer.com" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                            </div>
+                        </li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                        <li><a href="#" class="nav-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-right">
+                    <div class="language-selector">
+                        <span class="active">EN</span> | <span>TH</span>
                     </div>
-                    <div class="nav-center">
-                        <ul class="nav-menu">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
-                                <div class="dropdown">
-                                    <a href="https://flow.janishammer.com" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
-                                    <a href="https://daje.janishammer.com" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                                    <a href="https://i-flexthailand.com" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
-                                    <a href="https://jade.janishammer.com" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
-                                </div>
-                            </li>
-                            <li><a href="#" class="nav-link">Blog</a></li>
-                            <li><a href="#" class="nav-link">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-right">
-                        <div class="language-selector">
-                            <span class="active">EN</span> | <span>TH</span>
-                        </div>
-                        <div class="hamburger" id="janishammerHamburger">
-                            <span></span><span></span><span></span>
-                        </div>
+                    <div class="hamburger" id="janishammerHamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
-            </nav>
-            
-            <div class="mobile-menu" id="janishammerMobileMenu">
-                <ul class="mobile-menu-list">
-                    <li><a href="#" class="mobile-menu-link">Lifestyle</a>
-                        <div class="mobile-dropdown">
-                            <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
-                            <a href="https://daje.janishammer.com" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                            <a href="https://i-flexthailand.com" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
-                            <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
-                        </div>
-                    </li>
-                    <li><a href="#" class="mobile-menu-link">Blog</a></li>
-                    <li><a href="#" class="mobile-menu-link">Contact Us</a></li>
-                </ul>
             </div>
-        `;
-    }
+        </nav>
+
+        <div class="mobile-menu" id="janishammerMobileMenu">
+            <ul class="mobile-menu-list">
+                <li><a href="#" class="mobile-menu-link">Lifestyle</a>
+                    <div class="mobile-dropdown">
+                        <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                        <a href="https://daje.janishammer.com" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                        <a href="https://i-flexthailand.com" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                        <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                    </div>
+                </li>
+                <li><a href="#" class="mobile-menu-link">Blog</a></li>
+                <li><a href="#" class="mobile-menu-link">Contact Us</a></li>
+            </ul>
+        </div>
+    `;
+}
 
     // ===== BUILD FOOTER =====
     function buildFooter() {
