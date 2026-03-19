@@ -273,3 +273,4 @@ window.CURRENT_BRAND = 'janishammer';
     `;
     document.head.appendChild(style);
 })();
+console.log('✅ Config test v55555.1 loaded');
