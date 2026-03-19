@@ -62,8 +62,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="#" class="nav-link">Blog</a></li>
-                                <li><a href="#" class="nav-link">Contact Us</a></li>
+                                <li><a href="/blog.html" class="nav-link">Blog</a></li>
+                                <li><a href="/contact.html" class="nav-link">Contact Us</a></li>
                             </ul>
                         </div>
                         
@@ -91,8 +91,8 @@
                             <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
                         </div>
                     </li>
-                    <li><a href="#" class="mobile-menu-link">Blog</a></li>
-                    <li><a href="#" class="mobile-menu-link">Contact Us</a></li>
+                        <li><a href="/blog.html" class="mobile-menu-link">Blog</a></li>
+                        <li><a href="/contact.html" class="mobile-menu-link">Contact Us</a></li>
                 </ul>
             </div>
         `;
