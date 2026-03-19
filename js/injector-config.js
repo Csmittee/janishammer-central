@@ -323,3 +323,5 @@ window.CURRENT_BRAND = (function() {
     `;
     document.head.appendChild(style);
 })();
+// At the end of injector-config-test.js
+console.log('✅ Config test v55555.1 loaded');
