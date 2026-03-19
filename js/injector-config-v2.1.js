@@ -42,8 +42,8 @@ window.BRANDS = {
         accent: "#D4AF37",
         font: "'Quicksand', sans-serif",
         bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774844/Daje_only.png",
-        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
-        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773704/Daje-logo-std.png",
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png", // ← UPDATE THIS URL
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png",   // ← AND THIS ONE
         favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773700/Daje-logo-focus.png",
         tagline: "Happiness you can catch",
         contactEmail: "info@janishammer.com",
