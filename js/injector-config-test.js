@@ -1,3 +1,8 @@
+// ============================================
+// JANISHAMMER CONFIG TEST v1.0
+// TEST VERSION - Navbar fixes only
+// ============================================
+
 window.BRANDS = {
     janishammer: {
         name: "Janis Hammer",
@@ -33,6 +38,7 @@ window.CURRENT_BRAND = 'janishammer';
             background-position: center;
             min-height: 100vh;
             padding-top: 80px;
+            position: relative;
         }
         
         body::before {
@@ -47,9 +53,18 @@ window.CURRENT_BRAND = 'janishammer';
             z-index: 0;
         }
         
-        .hero, .content, .footer { position: relative; z-index: 2; }
+        .hero, .content, .footer { 
+            position: relative; 
+            z-index: 2; 
+        }
         
-        /* ===== NAVBAR ONLY ===== */
+        :root {
+            --primary: ${config.primary};
+            --secondary: ${config.secondary};
+            --accent: ${config.accent};
+        }
+        
+        /* ===== FIXED WRAPPER (NEW) ===== */
         .navbar-fixed-wrapper {
             position: fixed;
             top: 0;
@@ -58,6 +73,7 @@ window.CURRENT_BRAND = 'janishammer';
             z-index: 1000;
         }
         
+        /* ===== NAVBAR ===== */
         .navbar {
             width: 100%;
             padding: 0.75rem 2rem;
@@ -75,10 +91,27 @@ window.CURRENT_BRAND = 'janishammer';
             gap: 1rem;
         }
         
-        .nav-left img { height: 40px; width: auto; }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; justify-content: center; }
+        /* ===== LOGO ===== */
+        .nav-left img { 
+            height: 40px; 
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-left img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* ===== NAVIGATION MENU ===== */
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+            justify-content: center; 
+        }
+        
         .nav-link {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 0;
@@ -86,13 +119,77 @@ window.CURRENT_BRAND = 'janishammer';
             align-items: center;
             gap: 0.25rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: color 0.3s ease;
         }
         
+        .nav-link:hover { 
+            color: var(--secondary); 
+        }
+        
+        /* ===== DROPDOWN (FULL WIDTH) ===== */
+        .nav-item {
+            position: relative;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+        
+        .dropdown-item:hover {
+            color: var(--secondary);
+        }
+        
+        .dropdown-item.current {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* ===== LANGUAGE SELECTOR ===== */
         .language-selector {
             display: flex;
+            align-items: center;
             gap: 0.5rem;
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             justify-content: flex-end;
+        }
+        
+        .language-selector span {
+            line-height: 1;
+            padding: 0.25rem 0;
         }
         
         .language-selector span.active {
@@ -100,6 +197,74 @@ window.CURRENT_BRAND = 'janishammer';
             color: #000;
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
+        }
+        
+        /* ===== MOBILE MENU (FROM ORIGINAL) ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 5rem 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.active { 
+            opacity: 1; 
+            visibility: visible; 
+        }
+        
+        .mobile-menu-link { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 1.5rem; 
+            display: block; 
+            padding: 0.5rem 0; 
+        }
+        
+        .mobile-dropdown { 
+            margin-left: 1rem; 
+        }
+        
+        .mobile-dropdown-link { 
+            color: rgba(255,255,255,0.8); 
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            display: block; 
+            padding: 0.25rem 0; 
+        }
+        
+        @media screen and (max-width: 767px) {
+            .nav-menu, .language-selector { 
+                display: none; 
+            }
+            .hamburger { 
+                display: flex; 
+            }
+            .mobile-menu { 
+                display: block; 
+            }
         }
     `;
     document.head.appendChild(style);
