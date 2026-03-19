@@ -1,7 +1,8 @@
 // ============================================
-// JANISHAMMER CORE v1.0 - FINAL
-// Stable core with navbar, footer, mobile menu, GA
-// DO NOT EDIT - Create v2 for major changes
+// JANISHAMMER CORE v2.1
+// - Added "Janis home" link
+// - Absolute URLs for Blog/Contact
+// - Seamless cross-brand navigation
 // ============================================
 
 (function() {
@@ -34,7 +35,7 @@
         gtag('config', GA_ID);
     }
 
-    // ===== BUILD NAVBAR (uses window.BRANDS from config) =====
+    // ===== BUILD NAVBAR =====
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
@@ -51,6 +52,9 @@
                         
                         <div class="nav-center">
                             <ul class="nav-menu">
+                                <!-- JANIS HOME LINK (NEW) -->
+                                <li><a href="https://janishammer.com" class="nav-link">Janis home</a></li>
+                                
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
                                     <div class="dropdown">
@@ -62,8 +66,10 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="/blog.html" class="nav-link">Blog</a></li>
-                                <li><a href="/contact.html" class="nav-link">Contact Us</a></li>
+                                
+                                <!-- ABSOLUTE URLs FOR BLOG/CONTACT -->
+                                <li><a href="https://janishammer.com/blog" class="nav-link">Blog</a></li>
+                                <li><a href="https://janishammer.com/contact" class="nav-link">Contact Us</a></li>
                             </ul>
                         </div>
                         
@@ -81,8 +87,10 @@
                 </nav>
             </div>
 
+            <!-- MOBILE MENU (with same fixes) -->
             <div class="mobile-menu" id="janishammerMobileMenu">
                 <ul class="mobile-menu-list">
+                    <li><a href="https://janishammer.com" class="mobile-menu-link">Janis home</a></li>
                     <li><a href="#" class="mobile-menu-link">Lifestyle</a>
                         <div class="mobile-dropdown">
                             <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
@@ -91,8 +99,8 @@
                             <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
                         </div>
                     </li>
-                        <li><a href="/blog.html" class="mobile-menu-link">Blog</a></li>
-                        <li><a href="/contact.html" class="mobile-menu-link">Contact Us</a></li>
+                    <li><a href="https://janishammer.com/blog" class="mobile-menu-link">Blog</a></li>
+                    <li><a href="https://janishammer.com/contact" class="mobile-menu-link">Contact Us</a></li>
                 </ul>
             </div>
         `;
@@ -143,7 +151,7 @@
         `;
     }
 
-    // ===== MOBILE MENU =====
+    // ===== MOBILE MENU TOGGLE =====
     function initMobileMenu() {
         setTimeout(() => {
             const hamburger = document.getElementById('janishammerHamburger');
@@ -194,7 +202,7 @@
         initMobileMenu();
         
         const brand = window.CURRENT_BRAND || 'janishammer';
-        console.log(`✅ Core v1 loaded for ${window.BRANDS[brand].name}`);
+        console.log(`✅ Core v2.1 loaded for ${window.BRANDS[brand].name}`);
     }
 
     if (document.readyState === 'loading') {
