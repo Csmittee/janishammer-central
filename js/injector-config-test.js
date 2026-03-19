@@ -110,15 +110,15 @@ window.CURRENT_BRAND = 'janishammer';
             justify-content: center; 
         }
         
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
+       .nav-link {
+            color: #000000;  /* Changed from white to black */
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 0;
             display: flex;
             align-items: center;
             gap: 0.25rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.3); /* Lighter shadow for dark text */
             transition: color 0.3s ease;
         }
         
@@ -137,14 +137,15 @@ window.CURRENT_BRAND = 'janishammer';
             left: 50%;
             transform: translateX(-50%);
             width: 100vw;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);  /* Light background with opacity */
+            backdrop-filter: blur(10px);             /* Glass effect */
             padding: 1rem 0;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .nav-item:hover .dropdown {
@@ -162,7 +163,7 @@ window.CURRENT_BRAND = 'janishammer';
         }
         
         .dropdown-item {
-            color: rgba(255, 255, 255, 0.7);
+            color: #000000;  /* Black text */
             text-decoration: none;
             padding: 0.5rem 1rem;
             transition: color 0.3s ease;
@@ -170,7 +171,9 @@ window.CURRENT_BRAND = 'janishammer';
         }
         
         .dropdown-item:hover {
-            color: var(--secondary);
+            color: var(--secondary);  /* Keep brand color on hover */
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
         
         .dropdown-item.current {
@@ -183,7 +186,7 @@ window.CURRENT_BRAND = 'janishammer';
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: #000000;  /* Black text */
             justify-content: flex-end;
         }
         
@@ -193,10 +196,11 @@ window.CURRENT_BRAND = 'janishammer';
         }
         
         .language-selector span.active {
-            background: var(--secondary);
-            color: #000;
+            background: var(--secondary);  /* Brand color background */
+            color: #ffffff;  /* White text for contrast */
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
+            font-weight: 600;
         }
         
         /* ===== MOBILE MENU (FROM ORIGINAL) ===== */
