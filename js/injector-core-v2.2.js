@@ -1,29 +1,26 @@
 // ============================================
-// JANISHAMMER CORE v2.1
-// - Added "Janis home" link
-// - Absolute URLs for Blog/Contact
-// - Seamless cross-brand navigation
+// JANISHAMMER CORE v2.2
+// - Fixed: Footer flex (30% columns, mobile stack)
+// - Fixed: Hamburger alignment (logo left, hamburger right)
+// - Fixed: Mobile overflow
 // ============================================
 
 (function() {
     // ===== LOAD EXTERNAL ASSETS =====
     function loadAssets() {
-        // Google Fonts
         const fonts = document.createElement('link');
         fonts.rel = 'stylesheet';
         fonts.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Sora:wght@300..700&family=Outfit:wght@300..700&family=Quicksand:wght@400;500;600&family=Montserrat:wght@300..700&display=swap';
         document.head.appendChild(fonts);
         
-        // Font Awesome
         const fa = document.createElement('link');
         fa.rel = 'stylesheet';
         fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
         document.head.appendChild(fa);
     }
 
-    // ===== GOOGLE ANALYTICS =====
     function initGoogleAnalytics() {
-        const GA_ID = 'G-XXXXXXXXXX'; // Replace with your GA ID
+        const GA_ID = 'G-XXXXXXXXXX';
         const script = document.createElement('script');
         script.async = true;
         script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
@@ -35,7 +32,6 @@
         gtag('config', GA_ID);
     }
 
-    // ===== BUILD NAVBAR =====
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
@@ -52,9 +48,7 @@
                         
                         <div class="nav-center">
                             <ul class="nav-menu">
-                                <!-- JANIS HOME LINK (NEW) -->
                                 <li><a href="https://janishammer.com" class="nav-link">Janis home</a></li>
-                                
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
                                     <div class="dropdown">
@@ -66,8 +60,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                
-                                <!-- ABSOLUTE URLs FOR BLOG/CONTACT -->
                                 <li><a href="https://janishammer.com/blog" class="nav-link">Blog</a></li>
                                 <li><a href="https://janishammer.com/contact" class="nav-link">Contact Us</a></li>
                             </ul>
@@ -87,7 +79,6 @@
                 </nav>
             </div>
 
-            <!-- MOBILE MENU (with same fixes) -->
             <div class="mobile-menu" id="janishammerMobileMenu">
                 <ul class="mobile-menu-list">
                     <li><a href="https://janishammer.com" class="mobile-menu-link">Janis home</a></li>
@@ -106,7 +97,6 @@
         `;
     }
 
-    // ===== BUILD FOOTER =====
     function buildFooter() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
@@ -151,7 +141,6 @@
         `;
     }
 
-    // ===== MOBILE MENU TOGGLE =====
     function initMobileMenu() {
         setTimeout(() => {
             const hamburger = document.getElementById('janishammerHamburger');
@@ -166,7 +155,6 @@
         }, 100);
     }
 
-    // ===== FAVICON =====
     function setFavicon() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
@@ -187,10 +175,9 @@
         document.head.appendChild(appleIcon);
     }
 
-    // ===== INIT =====
     function init() {
         if (!window.BRANDS) {
-            console.error('Janishammer: BRANDS config not loaded. Make sure config loads first.');
+            console.error('Janishammer: BRANDS config not loaded.');
             return;
         }
         
@@ -202,7 +189,7 @@
         initMobileMenu();
         
         const brand = window.CURRENT_BRAND || 'janishammer';
-        console.log(`✅ Core v2.1 loaded for ${window.BRANDS[brand].name}`);
+        console.log(`✅ Core v2.2 loaded for ${window.BRANDS[brand].name}`);
     }
 
     if (document.readyState === 'loading') {
