@@ -5,5 +5,5 @@
 
 window.JANIS_VERSIONS = {
     core: '2.2',    // ← Change this when core updates
-    config: '2.2'    // ← Change this when config updates
+    config: '2.3'    // ← Change this when config updates
 };
