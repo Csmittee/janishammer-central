@@ -1,7 +1,7 @@
 // ============================================
-// JANISHAMMER CONFIG v2.0 - FINAL
-// All 5 brands with complete styling
-// Edit this file for color/brand updates
+// JANISHAMMER CONFIG v2.2
+// - Fixed: Footer flex (30% columns, mobile stack)
+// - Fixed: Navbar alignment (hamburger right, menu centered)
 // ============================================
 
 window.BRANDS = {
@@ -42,8 +42,8 @@ window.BRANDS = {
         accent: "#D4AF37",
         font: "'Quicksand', sans-serif",
         bgImage: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774844/Daje_only.png",
-        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png", // ← UPDATE THIS URL
-        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png",   // ← AND THIS ONE
+        logoLight: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png",
+        logoDark: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png",
         favicon: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1773773700/Daje-logo-focus.png",
         tagline: "Happiness you can catch",
         contactEmail: "info@janishammer.com",
@@ -82,7 +82,6 @@ window.BRANDS = {
     }
 };
 
-// ===== DETECT CURRENT BRAND =====
 window.CURRENT_BRAND = (function() {
     const hostname = window.location.hostname;
     if (hostname.includes('flow')) return 'flow';
@@ -92,13 +91,12 @@ window.CURRENT_BRAND = (function() {
     return 'janishammer';
 })();
 
-// ===== INJECT STYLES =====
 (function injectStyles() {
     const brand = window.CURRENT_BRAND;
     const config = window.BRANDS[brand];
     
     const style = document.createElement('style');
-    style.id = 'janishammer-styles-v2';
+    style.id = 'janishammer-styles-v2.2';
     style.textContent = `
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -154,16 +152,34 @@ window.CURRENT_BRAND = (function() {
             border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         
+        /* Fixed navbar alignment */
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 120px 1fr 120px;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
             gap: 1rem;
+            width: 100%;
         }
         
-        /* ===== LOGO ===== */
+        .nav-left {
+            justify-self: start;
+        }
+        
+        .nav-center {
+            justify-self: center;
+            text-align: center;
+        }
+        
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 100px;
+        }
+        
         .nav-left img { 
             height: 40px; 
             width: auto;
@@ -174,7 +190,6 @@ window.CURRENT_BRAND = (function() {
             transform: scale(1.1);
         }
         
-        /* ===== NAVIGATION MENU ===== */
         .nav-menu { 
             display: flex; 
             list-style: none; 
@@ -275,70 +290,12 @@ window.CURRENT_BRAND = (function() {
             font-weight: 600;
         }
         
-        /* ===== FOOTER ===== */
-        .footer {
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-container { max-width: 1280px; margin: 0 auto; }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1.5fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            justify-items: center;
-        }
-        
-        .footer-links ul { list-style: none; padding: 0; }
-        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; }
-        .footer-links a:hover { color: var(--secondary); }
-        
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            justify-content: center;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            color: white;
-            background: rgba(255,255,255,0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-        
-        .social-links a:hover { background: var(--secondary); color: #000; }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        /* ===== MOBILE ===== */
         .hamburger {
             display: none;
             flex-direction: column;
             gap: 6px;
             cursor: pointer;
+            margin-left: auto;
         }
         
         .hamburger span {
@@ -348,6 +305,65 @@ window.CURRENT_BRAND = (function() {
             transition: all 0.3s ease;
         }
         
+        /* ===== FOOTER (flex 30% columns, mobile stack) ===== */
+        .footer {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand,
+        .footer-links,
+        .footer-contact {
+            flex: 1 1 30%;
+            min-width: 200px;
+            word-break: break-word;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links a,
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: inline-block;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            line-height: 1.6;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            word-break: break-word;
+        }
+        
+        /* ===== MOBILE MENU ===== */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -389,18 +405,36 @@ window.CURRENT_BRAND = (function() {
             padding: 0.25rem 0; 
         }
         
+        /* ===== MOBILE RESPONSIVE ===== */
         @media screen and (max-width: 767px) {
-            .nav-menu, .language-selector { 
-                display: none; 
+            .nav-menu,
+            .language-selector {
+                display: none;
             }
-            .hamburger { 
-                display: flex; 
+            .hamburger {
+                display: flex;
             }
-            .mobile-menu { 
-                display: block; 
+            .nav-right {
+                justify-content: flex-end;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .footer-brand,
+            .footer-links,
+            .footer-contact {
+                flex: 1 1 100%;
+                width: 100%;
             }
         }
     `;
     document.head.appendChild(style);
-    console.log(`✅ Config v2 loaded for ${config.name}`);
+    console.log(`✅ Config v2.2 loaded for ${config.name}`);
 })();
