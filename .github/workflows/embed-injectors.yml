@@ -4,6 +4,10 @@ on:
   push:
     paths:
       - 'js/injector-*.js'
+      - 'janishammer-home/*.html'
+      - 'janis-flow/*.html'
+      - 'daje-queencatcher/*.html'
+      - 'jade-coffee/*.html'
   workflow_dispatch:
 
 jobs:
