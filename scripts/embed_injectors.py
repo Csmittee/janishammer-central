@@ -11,17 +11,13 @@ REPOS = {
     "jade-coffee": ["index.html"]
 }
 
-INJECTOR_FILES = {
-    "core": "js/injector-core-v2.5.js",
-    "config": "js/injector-config-v2.3.js"
-}
+INJECTOR_CORE = "js/injector-core.js"
+INJECTOR_CONFIG = "js/injector-config.js"
 
-# ===== GET CHANGED FILES FROM COMMIT =====
+# ===== GET CHANGED FILES =====
 def get_changed_files():
-    # If running locally, return None (update all)
     if not os.environ.get('GITHUB_ACTIONS'):
         return None
-    
     result = subprocess.run(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'], 
                             capture_output=True, text=True)
     return result.stdout.splitlines()
@@ -31,7 +27,7 @@ def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
-# ===== EMBED INJECTORS INTO HTML =====
+# ===== EMBED INJECTORS =====
 def embed_injectors(html_path, core_js, config_js):
     if not os.path.exists(html_path):
         return False
@@ -68,8 +64,8 @@ def main():
     if changed_files:
         print(f"📝 Changed files: {changed_files}")
     
-    core_js = read_file(INJECTOR_FILES["core"])
-    config_js = read_file(INJECTOR_FILES["config"])
+    core_js = read_file(INJECTOR_CORE)
+    config_js = read_file(INJECTOR_CONFIG)
     
     updated = 0
     
@@ -77,7 +73,7 @@ def main():
     injector_changed = False
     if changed_files:
         for f in changed_files:
-            if f.startswith('js/injector-'):
+            if f == INJECTOR_CORE or f == INJECTOR_CONFIG:
                 injector_changed = True
                 break
     
@@ -85,7 +81,6 @@ def main():
         for file in files:
             path = os.path.join(repo, file)
             
-            # Skip if this file wasn't changed (unless injector changed)
             if changed_files and not injector_changed and path not in changed_files:
                 continue
             
