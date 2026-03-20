@@ -2,8 +2,9 @@
 // JANISHAMMER CORE v2.4
 // - Added bilingual language switcher (EN/TH)
 // - Switches between /path and /th/path
+// - Highlights active language in selector
+// - Translates navbar menu items
 // - Works with mirror structure (blog.html ↔ th/blog.html)
-// - No changes to navbar, footer, or injector logic
 // ============================================
 
 (function() {
@@ -31,6 +32,54 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', GA_ID);
+    }
+
+    // ===== TRANSLATIONS =====
+    const translations = {
+        en: {
+            janisHome: 'Janis home',
+            lifestyle: 'Lifestyle',
+            blog: 'Blog',
+            contact: 'Contact Us'
+        },
+        th: {
+            janisHome: 'หน้าแรก',
+            lifestyle: 'ไลฟ์สไตล์',
+            blog: 'บล็อก',
+            contact: 'ติดต่อเรา'
+        }
+    };
+
+    function getCurrentLang() {
+        const path = window.location.pathname;
+        return path.startsWith('/th/') ? 'th' : 'en';
+    }
+
+    function updateNavbarLanguage() {
+        const lang = getCurrentLang();
+        const texts = translations[lang];
+        
+        // Update desktop menu
+        const janisHomeLink = document.querySelector('.nav-menu a[href="https://janishammer.com"]');
+        const lifestyleLink = document.querySelector('.nav-menu .nav-item > a');
+        const blogLink = document.querySelector('.nav-menu a[href="https://janishammer.com/blog.html"]');
+        const contactLink = document.querySelector('.nav-menu a[href="https://janishammer.com/contact.html"]');
+        
+        if (janisHomeLink) janisHomeLink.textContent = texts.janisHome;
+        if (lifestyleLink) lifestyleLink.innerHTML = texts.lifestyle + ' <i class="fas fa-chevron-down"></i>';
+        if (blogLink) blogLink.textContent = texts.blog;
+        if (contactLink) contactLink.textContent = texts.contact;
+        
+        // Update mobile menu
+        const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
+        const mobileLifestyle = document.querySelector('.mobile-menu-list > li:first-child > a');
+        const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
+        const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
+        
+        if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
+        if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
+        if (mobileBlog) mobileBlog.textContent = texts.blog;
+        if (mobileContact) mobileContact.textContent = texts.contact;
     }
 
     function buildNavbar() {
@@ -68,7 +117,7 @@
                         
                         <div class="nav-right">
                             <div class="language-selector">
-                                <span class="active" id="lang-en">EN</span> | <span id="lang-th">TH</span>
+                                <span id="lang-en" class="lang-option">EN</span> | <span id="lang-th" class="lang-option">TH</span>
                             </div>
                             <div class="hamburger" id="janishammerHamburger">
                                 <span></span>
@@ -176,13 +225,26 @@
         document.head.appendChild(appleIcon);
     }
 
-    // ===== LANGUAGE SWITCHER (NEW in v2.4) =====
+    // ===== LANGUAGE SWITCHER =====
     function setupLanguageSwitcher() {
         const langEn = document.getElementById('lang-en');
         const langTh = document.getElementById('lang-th');
         const currentPath = window.location.pathname;
         
+        function updateHighlight() {
+            const lang = getCurrentLang();
+            if (lang === 'en') {
+                langEn.classList.add('active');
+                langTh.classList.remove('active');
+            } else {
+                langTh.classList.add('active');
+                langEn.classList.remove('active');
+            }
+        }
+        
         if (langEn && langTh) {
+            updateHighlight();
+            
             langEn.addEventListener('click', () => {
                 let newPath = currentPath;
                 if (currentPath.startsWith('/th/')) {
@@ -215,7 +277,10 @@
         document.body.insertAdjacentHTML('beforeend', buildFooter());
         initGoogleAnalytics();
         initMobileMenu();
-        setTimeout(setupLanguageSwitcher, 100);
+        
+        // Update navbar language and setup switcher
+        updateNavbarLanguage();
+        setupLanguageSwitcher();
         
         const brand = window.CURRENT_BRAND || 'janishammer';
         console.log(`✅ Core v2.4 loaded for ${window.BRANDS[brand].name}`);
