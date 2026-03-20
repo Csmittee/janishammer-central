@@ -383,7 +383,8 @@ window.CURRENT_BRAND = (function() {
             transition: all 0.3s ease;
         }
         
-        .mobile-menu.active { 
+            .mobile-menu.active { 
+            display: block !important;
             opacity: 1; 
             visibility: visible; 
         }
@@ -408,6 +409,18 @@ window.CURRENT_BRAND = (function() {
             padding: 0.25rem 0; 
         }
         
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
         /* ===== MOBILE RESPONSIVE ===== */
         @media screen and (max-width: 767px) {
             .nav-menu,
