@@ -1,5 +1,5 @@
 // ============================================
-// JANISHAMMER CONFIG v2.2
+// JANISHAMMER CONFIG v2.2 +0.1
 // - Fixed: Footer flex (30% columns, mobile stack)
 // - Fixed: Navbar alignment (hamburger right, menu centered)
 // ============================================
@@ -327,7 +327,7 @@ window.CURRENT_BRAND = (function() {
         .footer-content {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-evenly;
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -338,12 +338,14 @@ window.CURRENT_BRAND = (function() {
             flex: 1 1 30%;
             min-width: 200px;
             word-break: break-word;
-        }
+            text-align: center;
+            }
         
         .footer-links ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            text-align: center;
         }
         
         .footer-links a,
@@ -354,6 +356,7 @@ window.CURRENT_BRAND = (function() {
             max-width: 100%;
             overflow-wrap: break-word;
             line-height: 1.6;
+            text-align: center;
         }
         
         .footer-bottom {
