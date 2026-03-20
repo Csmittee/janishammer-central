@@ -67,7 +67,7 @@
                         
                         <div class="nav-right">
                             <div class="language-selector">
-                                <span class="active">EN</span> | <span>TH</span>
+                               <span class="active" id="lang-en">EN</span> | <span id="lang-th">TH</span>
                             </div>
                             <div class="hamburger" id="janishammerHamburger">
                                 <span></span>
@@ -197,4 +197,31 @@
     } else {
         init();
     }
+
+    function setupLanguageSwitcher() {
+        const langEn = document.getElementById('lang-en');
+        const langTh = document.getElementById('lang-th');
+        const currentPath = window.location.pathname;
+        
+        if (langEn && langTh) {
+            langEn.addEventListener('click', () => {
+                // If currently on Thai path, remove /th/
+                let newPath = currentPath.replace(/^\/th\//, '/');
+                window.location.href = newPath;
+            });
+            
+            langTh.addEventListener('click', () => {
+                // If not already on Thai path, add /th/
+                if (!currentPath.startsWith('/th/')) {
+                    window.location.href = '/th' + currentPath;
+                } else {
+                    window.location.href = currentPath;
+                }
+            });
+        }
+    }
+
+// Call this after init
+setTimeout(setupLanguageSwitcher, 100);
+
 })();
