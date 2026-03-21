@@ -352,7 +352,10 @@ window.CURRENT_BRAND = (function() {
         .footer-contact p {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
             max-width: 100%;
             overflow-wrap: break-word;
             line-height: 1.6;
