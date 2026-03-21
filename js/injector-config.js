@@ -1,10 +1,9 @@
-
 // ============================================
-// JANISHAMMER CONFIG v2.2 +0.1
-// - Fixed: Footer flex (30% columns, mobile stack)
-// - Fixed: Navbar alignment (hamburger right, menu centered)
+// JANISHAMMER CONFIG v2.0
+// - New era: served from assets.janishammer.com
+// - No version numbers in filenames
+// - All brand colors, fonts, CSS
 // ============================================
-
 window.BRANDS = {
     flow: {
         name: "Janis Flow",
@@ -453,5 +452,5 @@ window.CURRENT_BRAND = (function() {
         }
     `;
     document.head.appendChild(style);
-    console.log(`✅ Config v2.2 loaded for ${config.name}`);
+    console.log(`✅ Config v2.0 loaded for ${config.name}`);
 })();
