@@ -55,31 +55,31 @@
         return path.startsWith('/th/') ? 'th' : 'en';
     }
 
-    function updateNavbarLanguage() {
-        const lang = getCurrentLang();
-        const texts = translations[lang];
-        
-        // Update desktop menu
-        const janisHomeLink = document.querySelector('.nav-menu a[href="https://janishammer.com"]');
-        const lifestyleLink = document.querySelector('.nav-menu .nav-item > a');
-        const blogLink = document.querySelector('.nav-menu a[href="https://janishammer.com/blog.html"]');
-        const contactLink = document.querySelector('.nav-menu a[href="https://janishammer.com/contact.html"]');
-        
-        if (janisHomeLink) janisHomeLink.textContent = texts.janisHome;
-        if (lifestyleLink) lifestyleLink.innerHTML = texts.lifestyle + ' <i class="fas fa-chevron-down"></i>';
-        if (blogLink) blogLink.textContent = texts.blog;
-        if (contactLink) contactLink.textContent = texts.contact;
-        
-        // Update mobile menu
-        const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
-        const mobileLifestyle = document.querySelector('.mobile-menu-list > li:first-child > a');
-        const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
-        const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
-        
-        if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
-        if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
-        if (mobileBlog) mobileBlog.textContent = texts.blog;
-        if (mobileContact) mobileContact.textContent = texts.contact;
+   function updateNavbarLanguage() {
+    const lang = getCurrentLang();
+    const texts = translations[lang];
+    
+    // Update desktop menu
+    const janisHomeLink = document.querySelector('.nav-menu a[href="https://janishammer.com"]');
+    const lifestyleLink = document.querySelector('.nav-menu .nav-item > a');
+    const blogLink = document.querySelector('.nav-menu a[href="https://janishammer.com/blog.html"]');
+    const contactLink = document.querySelector('.nav-menu a[href="https://janishammer.com/contact.html"]');
+    
+    if (janisHomeLink) janisHomeLink.textContent = texts.janisHome;
+    if (lifestyleLink) lifestyleLink.innerHTML = texts.lifestyle + ' <i class="fas fa-chevron-down"></i>';
+    if (blogLink) blogLink.textContent = texts.blog;
+    if (contactLink) contactLink.textContent = texts.contact;
+    
+    // Update mobile menu — FIX THIS SECTION
+    const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
+    const mobileLifestyle = document.querySelector('.mobile-menu-list > li:first-child > a');
+    const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
+    const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
+    
+    if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
+    if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
+    if (mobileBlog) mobileBlog.textContent = texts.blog;
+    if (mobileContact) mobileContact.textContent = texts.contact;
     }
 
     function buildNavbar() {
