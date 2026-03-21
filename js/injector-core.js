@@ -1,304 +1,358 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ติดต่อเรา · Janishammer</title>
-    
-    <!-- META TAGS -->
-    <meta name="description" content="ร่วมเป็นส่วนหนึ่งในไลฟ์สไตล์ของคุณ ติดต่อ Janishammer เพื่อความร่วมมือ สอบถาม หรือเพียงแค่ทักทาย">
-    <meta property="og:title" content="ติดต่อ Janishammer">
-    <meta property="og:description" content="ร่วมเป็นส่วนหนึ่งในไลฟ์สไตล์ของคุณ">
-    <meta property="og:image" content="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773341421/Eng_SEO_OG.png">
-    <meta property="og:url" content="https://janishammer.com/th/contact">
-    
-    <!-- INJECTORS (fixed URLs) -->
-    <script src="https://assets.janishammer.com/js/injector-core.js"></script>
-    <script src="https://assets.janishammer.com/js/injector-config.js"></script>
-    
-    <style>
-        .brand-floating-section {
-            max-width: 1280px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
-        
-        .brand-thumbnails {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-        }
-        
-        .brand-thumb {
-            flex: 0 0 auto;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            animation: float 4s ease-in-out infinite;
-            transition: transform 0.3s ease;
-        }
-        
-        .brand-thumb:hover {
-            transform: scale(1.1);
-        }
-        
-        .brand-thumb:nth-child(1) { animation-delay: 0s; }
-        .brand-thumb:nth-child(2) { animation-delay: 0.5s; }
-        .brand-thumb:nth-child(3) { animation-delay: 1s; }
-        .brand-thumb:nth-child(4) { animation-delay: 1.5s; }
-        .brand-thumb:nth-child(5) { animation-delay: 2s; }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .brand-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .brand-thumb:nth-child(3) {
-            width: 100px;
-            height: 100px;
-        }
-        
-        .contact-hero {
-            text-align: center;
-            padding: 3rem 2rem 1rem;
-        }
-        
-        .contact-hero h1 {
-            font-size: 3rem;
-            color: white;
-            text-shadow: 2px 4px 12px rgba(0,0,0,0.5);
-            margin-bottom: 1rem;
-            animation: slideIn 0.5s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .form-section {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .form-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.2);
-            display: flex;
-            justify-content: center;
-        }
-        
-        #zf_div_vGIqcdbeCPQhozpX_nE0HsQjzgVAqY58jFWyNKjpiiE {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            background: transparent;
-        }
-        
-        .qr-section {
-            max-width: 1280px;
-            margin: 4rem auto;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .qr-section h2 {
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        
-        .qr-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .qr-item {
-            text-align: center;
-        }
-        
-        .qr-item img {
-            width: 150px;
-            height: 150px;
-            border-radius: 24px;
-            padding: 0.5rem;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .qr-item img:hover {
-            transform: scale(1.05);
-        }
-        
-        .qr-item p {
-            margin-top: 0.5rem;
-            color: white;
-            font-weight: 600;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        }
-        
-        @media (max-width: 768px) {
-            .contact-hero h1 { font-size: 2.2rem; }
-            .brand-thumb { width: 60px; height: 60px; }
-            .brand-thumb:nth-child(3) { width: 80px; height: 80px; }
-            .form-card { padding: 1rem; }
-        }
-    </style>
-</head>
-<body>
-    <!-- FLOATING BRAND THUMBNAILS -->
-    <section class="brand-floating-section">
-        <div class="brand-thumbnails">
-            <div class="brand-thumb">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773933832/Janis_hammmer_2026_3.png" alt="Janis Hammer">
-            </div>
-            <div class="brand-thumb">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773772664/Janis-flow-logo.png" alt="Janis Flow">
-            </div>
-            <div class="brand-thumb">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773931919/Daje-logo-original-nobg.png" alt="Daje Games">
-            </div>
-            <div class="brand-thumb">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773768378/I-Flex_main_no_bg.svg" alt="I-Flex Pilates">
-            </div>
-            <div class="brand-thumb">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773774149/Jade-logo-original.png" alt="Jade Coffee">
-            </div>
-        </div>
-    </section>
+// ============================================
+// JANISHAMMER CORE v2.0
+// - New era: served from assets.janishammer.com
+// - Mobile language selector added to hamburger menu
+// - Mobile menu: "Janis home" / "หน้าแรก" matches desktop
+// - Language selector hover: pointer cursor + scale effect
+// - No version numbers in filenames
+// ============================================
 
-    <!-- HERO -->
-    <section class="contact-hero">
-        <h1>ร่วมเป็นส่วนหนึ่งในไลฟ์สไตล์ของคุณ</h1>
-    </section>
+(function() {
+    // ===== LOAD EXTERNAL ASSETS =====
+    function loadAssets() {
+        const fonts = document.createElement('link');
+        fonts.rel = 'stylesheet';
+        fonts.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Sora:wght@300..700&family=Outfit:wght@300..700&family=Quicksand:wght@400;500;600&family=Montserrat:wght@300..700&display=swap';
+        document.head.appendChild(fonts);
+        
+        const fa = document.createElement('link');
+        fa.rel = 'stylesheet';
+        fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fa);
+    }
 
-    <!-- ZOHO FORM SECTION -->
-    <section class="form-section">
-        <div class="form-card">
-            <div id="zf_div_vGIqcdbeCPQhozpX_nE0HsQjzgVAqY58jFWyNKjpiiE"></div>
-            <script type="text/javascript">
-            (function() {
-                try{
-                    var f = document.createElement("iframe");
-                    var ifrmSrc = 'https://forms.zohopublic.com/chairitsmitteejanis1/form/ContactUs/formperma/vGIqcdbeCPQhozpX_nE0HsQjzgVAqY58jFWyNKjpiiE?zf_rszfm=1';
-                    
-                    try{
-                        if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
-                            for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
-                                var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
-                                utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
-                                var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
-                                if ( typeof utmVal !== "undefined" ) {
-                                  if ( utmVal != "" ) {
-                                    if(ifrmSrc.indexOf('?') > 0){
-                                         ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
-                                    }else{
-                                        ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
-                                    }
-                                  }
-                                }
-                            }
-                        }
-                        if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
-                            for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
-                                var utmPm = ZFLead.utmPNameArr[ prmIdx ];
-                                var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
-                                if ( typeof utmVal !== "undefined" ) {
-                                  if ( utmVal != "" ){
-                                    if(ifrmSrc.indexOf('?') > 0){
-                                      ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
-                                    }else{
-                                      ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
-                                    }
-                                  }
-                                }
-                            }
-                        }
-                    }catch(e){}
-                    
-                    f.src = ifrmSrc;
-                    f.style.border="none";
-                    f.style.height="1140px";
-                    f.style.width="90%";
-                    f.style.transition="all 0.5s ease";
-                    f.setAttribute("aria-label", 'Contact Us');
-                    
-                    var d = document.getElementById("zf_div_vGIqcdbeCPQhozpX_nE0HsQjzgVAqY58jFWyNKjpiiE");
-                    d.appendChild(f);
-                    window.addEventListener('message', function (){
-                        var evntData = event.data;
-                        if( evntData && evntData.constructor == String ){
-                            var zf_ifrm_data = evntData.split("|");
-                            if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
-                                var zf_perma = zf_ifrm_data[0];
-                                var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
-                                var iframe = document.getElementById("zf_div_vGIqcdbeCPQhozpX_nE0HsQjzgVAqY58jFWyNKjpiiE").getElementsByTagName("iframe")[0];
-                                if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
-                                    var prevIframeHeight = iframe.style.height;
-                                    var zf_tout = false;
-                                    if( zf_ifrm_data.length == 3 ) {
-                                        iframe.scrollIntoView();
-                                        zf_tout = true;
-                                    }
+    function initGoogleAnalytics() {
+        const GA_ID = 'G-XXXXXXXXXX';
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+    }
 
-                                    if ( prevIframeHeight != zf_ifrm_ht_nw ) {
-                                        if( zf_tout ) {
-                                            setTimeout(function(){
-                                                iframe.style.height = zf_ifrm_ht_nw;
-                                            },500);
-                                        } else {
-                                            iframe.style.height = zf_ifrm_ht_nw;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }, false);
-                }catch(e){}
-            })();
-            </script>
-        </div>
-    </section>
+    // ===== TRANSLATIONS =====
+    const translations = {
+        en: {
+            janisHome: 'Janis home',
+            lifestyle: 'Lifestyle',
+            blog: 'Blog',
+            contact: 'Contact Us'
+        },
+        th: {
+            janisHome: 'หน้าแรก',
+            lifestyle: 'ไลฟ์สไตล์',
+            blog: 'บล็อก',
+            contact: 'ติดต่อเรา'
+        }
+    };
 
-    <!-- QR CODES -->
-    <section class="qr-section">
-        <h2>ติดต่อเรา</h2>
-        <div class="qr-grid">
-            <div class="qr-item">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773564045/qr-codeLine.png" alt="Line QR Code">
-                <p>Line</p>
+    function getCurrentLang() {
+        const path = window.location.pathname;
+        return path.startsWith('/th/') ? 'th' : 'en';
+    }
+
+    function updateNavbarLanguage() {
+        const lang = getCurrentLang();
+        const texts = translations[lang];
+        
+        // Update desktop menu
+        const janisHomeLink = document.querySelector('.nav-menu a[href="https://janishammer.com"]');
+        const lifestyleLink = document.querySelector('.nav-menu .nav-item > a');
+        const blogLink = document.querySelector('.nav-menu a[href="https://janishammer.com/blog.html"]');
+        const contactLink = document.querySelector('.nav-menu a[href="https://janishammer.com/contact.html"]');
+        
+        if (janisHomeLink) janisHomeLink.textContent = texts.janisHome;
+        if (lifestyleLink) lifestyleLink.innerHTML = texts.lifestyle + ' <i class="fas fa-chevron-down"></i>';
+        if (blogLink) blogLink.textContent = texts.blog;
+        if (contactLink) contactLink.textContent = texts.contact;
+        
+        // Update mobile menu
+        const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
+        const mobileLifestyle = document.querySelector('.mobile-menu-list > li:first-child > a');
+        const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
+        const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
+        
+        if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
+        if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
+        if (mobileBlog) mobileBlog.textContent = texts.blog;
+        if (mobileContact) mobileContact.textContent = texts.contact;
+    }
+
+    function buildNavbar() {
+        const brand = window.CURRENT_BRAND || 'janishammer';
+        const config = window.BRANDS ? window.BRANDS[brand] : null;
+        
+        if (!config) return '';
+        
+        return `
+            <div class="navbar-fixed-wrapper">
+                <nav class="navbar">
+                    <div class="nav-container">
+                        <div class="nav-left">
+                            <img src="${config.logoLight}" alt="${config.name}">
+                        </div>
+                        
+                        <div class="nav-center">
+                            <ul class="nav-menu">
+                                <li><a href="https://janishammer.com" class="nav-link">Janis home</a></li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                                    <div class="dropdown">
+                                        <div class="dropdown-content">
+                                            <a href="https://flow.janishammer.com" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                                            <a href="https://daje.janishammer.com" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                                            <a href="https://i-flexthailand.com" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                                            <a href="https://jade.janishammer.com" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="https://janishammer.com/blog.html" class="nav-link">Blog</a></li>
+                                <li><a href="https://janishammer.com/contact.html" class="nav-link">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="nav-right">
+                            <div class="language-selector">
+                                <span id="lang-en" class="lang-option">EN</span> | <span id="lang-th" class="lang-option">TH</span>
+                            </div>
+                            <div class="hamburger" id="janishammerHamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div class="qr-item">
-                <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1773563694/Whatsapp_QR.jpg" alt="WhatsApp QR Code">
-                <p>WhatsApp</p>
+
+            <div class="mobile-menu" id="janishammerMobileMenu">
+                <ul class="mobile-menu-list">
+                    <li><a href="https://janishammer.com" class="mobile-menu-link">Janis home</a></li>
+                    <li><a href="#" class="mobile-menu-link">Lifestyle</a>
+                        <div class="mobile-dropdown">
+                            <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                            <a href="https://daje.janishammer.com" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                            <a href="https://i-flexthailand.com" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                            <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                        </div>
+                    </li>
+                    <li><a href="https://janishammer.com/blog.html" class="mobile-menu-link">Blog</a></li>
+                    <li><a href="https://janishammer.com/contact.html" class="mobile-menu-link">Contact Us</a></li>
+                    <!-- Language selector in mobile menu (bottom) -->
+                    <li class="mobile-language-selector">
+                        <div class="mobile-language-options">
+                            <span id="mobile-lang-en" class="mobile-lang-option">EN</span> | <span id="mobile-lang-th" class="mobile-lang-option">TH</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
-</body>
-</html>
+        `;
+    }
+
+    function buildFooter() {
+        const brand = window.CURRENT_BRAND || 'janishammer';
+        const config = window.BRANDS ? window.BRANDS[brand] : null;
+        const year = new Date().getFullYear();
+        
+        if (!config) return '';
+        
+        return `
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <h3>${config.name}</h3>
+                            <p>${config.tagline}</p>
+                            <div class="social-links">
+                                <a href="${config.social.facebook}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="${config.social.instagram}"><i class="fab fa-instagram"></i></a>
+                                <a href="${config.social.youtube}"><i class="fab fa-youtube"></i></a>
+                                <a href="${config.social.tiktok}"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-contact">
+                            <h4>Contact</h4>
+                            <p><i class="fas fa-envelope"></i> ${config.contactEmail}</p>
+                            <p><i class="fas fa-globe"></i> ${config.domain}</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>© ${year} ${config.name} · A Janishammer Brand</p>
+                    </div>
+                </div>
+            </footer>
+        `;
+    }
+
+    function initMobileMenu() {
+        setTimeout(() => {
+            const hamburger = document.getElementById('janishammerHamburger');
+            const mobileMenu = document.getElementById('janishammerMobileMenu');
+            
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+            }
+        }, 100);
+    }
+
+    function setFavicon() {
+        const brand = window.CURRENT_BRAND || 'janishammer';
+        const config = window.BRANDS ? window.BRANDS[brand] : null;
+        
+        if (!config || !config.favicon) return;
+        
+        document.querySelectorAll('link[rel*="icon"]').forEach(el => el.remove());
+        
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/png';
+        favicon.href = config.favicon;
+        document.head.appendChild(favicon);
+        
+        const appleIcon = document.createElement('link');
+        appleIcon.rel = 'apple-touch-icon';
+        appleIcon.href = config.favicon;
+        document.head.appendChild(appleIcon);
+    }
+
+    // ===== LANGUAGE SWITCHER =====
+    function setupLanguageSwitcher() {
+        const langEn = document.getElementById('lang-en');
+        const langTh = document.getElementById('lang-th');
+        const mobileLangEn = document.getElementById('mobile-lang-en');
+        const mobileLangTh = document.getElementById('mobile-lang-th');
+        const currentPath = window.location.pathname;
+        
+        function updateHighlight() {
+            const lang = getCurrentLang();
+            const activeClass = 'active';
+            
+            // Desktop
+            if (lang === 'en') {
+                langEn?.classList.add(activeClass);
+                langTh?.classList.remove(activeClass);
+            } else {
+                langTh?.classList.add(activeClass);
+                langEn?.classList.remove(activeClass);
+            }
+            
+            // Mobile
+            if (lang === 'en') {
+                mobileLangEn?.classList.add(activeClass);
+                mobileLangTh?.classList.remove(activeClass);
+            } else {
+                mobileLangTh?.classList.add(activeClass);
+                mobileLangEn?.classList.remove(activeClass);
+            }
+        }
+        
+        function switchTo(lang) {
+            if (lang === 'en') {
+                let newPath = currentPath;
+                if (currentPath.startsWith('/th/')) {
+                    newPath = currentPath.replace(/^\/th\//, '/');
+                } else if (currentPath === '/th') {
+                    newPath = '/';
+                }
+                window.location.href = newPath;
+            } else {
+                if (!currentPath.startsWith('/th/')) {
+                    window.location.href = '/th' + currentPath;
+                } else {
+                    window.location.href = currentPath;
+                }
+            }
+        }
+        
+        if (langEn && langTh) {
+            updateHighlight();
+            langEn.addEventListener('click', () => switchTo('en'));
+            langTh.addEventListener('click', () => switchTo('th'));
+        }
+        
+        if (mobileLangEn && mobileLangTh) {
+            updateHighlight();
+            mobileLangEn.addEventListener('click', () => switchTo('en'));
+            mobileLangTh.addEventListener('click', () => switchTo('th'));
+        }
+    }
+
+    // ===== ADD LANGUAGE SELECTOR STYLES =====
+    function addLanguageSelectorStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .lang-option, .mobile-lang-option {
+                cursor: pointer;
+                transition: transform 0.2s ease, color 0.2s ease;
+                display: inline-block;
+            }
+            .lang-option:hover, .mobile-lang-option:hover {
+                transform: scale(1.1);
+                color: var(--secondary);
+            }
+            .mobile-language-selector {
+                margin-top: 2rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                text-align: center;
+            }
+            .mobile-language-options {
+                display: inline-flex;
+                gap: 1rem;
+                font-size: 1.2rem;
+                color: white;
+            }
+            .mobile-lang-option.active {
+                background: var(--secondary);
+                color: #000;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function init() {
+        if (!window.BRANDS) {
+            console.error('Janishammer: BRANDS config not loaded.');
+            return;
+        }
+        
+        loadAssets();
+        setFavicon();
+        addLanguageSelectorStyles();
+        document.body.insertAdjacentHTML('afterbegin', buildNavbar());
+        document.body.insertAdjacentHTML('beforeend', buildFooter());
+        initGoogleAnalytics();
+        initMobileMenu();
+        
+        // Update navbar language and setup switcher
+        updateNavbarLanguage();
+        setupLanguageSwitcher();
+        
+        const brand = window.CURRENT_BRAND || 'janishammer';
+        console.log(`✅ Core v2.0 loaded for ${window.BRANDS[brand].name}`);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
