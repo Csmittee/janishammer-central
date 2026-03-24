@@ -219,21 +219,21 @@ window.CURRENT_BRAND = (function() {
         }
         
         .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
         
         .nav-item:hover .dropdown {
             opacity: 1;
@@ -250,7 +250,7 @@ window.CURRENT_BRAND = (function() {
         }
         
         .dropdown-item {
-            color: #000000;
+            color: #ffffff;
             text-decoration: none;
             padding: 0.5rem 1rem;
             transition: color 0.3s ease;
@@ -259,7 +259,7 @@ window.CURRENT_BRAND = (function() {
         
         .dropdown-item:hover {
             color: var(--secondary);
-            background: rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
         
