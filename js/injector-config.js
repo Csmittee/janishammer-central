@@ -215,25 +215,26 @@ window.CURRENT_BRAND = (function() {
         
         /* ===== DROPDOWN ===== */
         .nav-item {
-            position: relative;
+            position: static;
         }
         
         .dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        padding: 1rem 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        border-top: 1px solid rgba(0,0,0,0.1);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            min-width: 200px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         
         .nav-item:hover .dropdown {
             opacity: 1;
@@ -247,6 +248,7 @@ window.CURRENT_BRAND = (function() {
             justify-content: center;
             gap: 2rem;
             padding: 0 2rem;
+            width: 100%;
         }
         
         .dropdown-item {
