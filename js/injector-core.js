@@ -70,9 +70,9 @@
     if (blogLink) blogLink.textContent = texts.blog;
     if (contactLink) contactLink.textContent = texts.contact;
     
-    // Update mobile menu — FIX THIS SECTION
+       // Update mobile menu — FIXED SELECTORS
     const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
-    const mobileLifestyle = document.querySelector('.mobile-menu-list > li:first-child > a');
+    const mobileLifestyle = document.querySelector('.mobile-menu-list li:nth-child(2) > a');
     const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
     const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
     
@@ -80,7 +80,6 @@
     if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
     if (mobileBlog) mobileBlog.textContent = texts.blog;
     if (mobileContact) mobileContact.textContent = texts.contact;
-    }
 
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
