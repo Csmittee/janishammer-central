@@ -80,7 +80,7 @@
     if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
     if (mobileBlog) mobileBlog.textContent = texts.blog;
     if (mobileContact) mobileContact.textContent = texts.contact;
-
+   }
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
