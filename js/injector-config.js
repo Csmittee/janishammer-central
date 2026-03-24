@@ -221,9 +221,9 @@ window.CURRENT_BRAND = (function() {
         .dropdown {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
+            left: 0;
+            right: 0;
+            width: 100%;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
@@ -377,8 +377,8 @@ window.CURRENT_BRAND = (function() {
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0,0,0,0.98);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
             z-index: 999;
             padding: 5rem 2rem;
             opacity: 0;
