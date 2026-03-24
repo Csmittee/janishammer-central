@@ -80,6 +80,15 @@
     if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
     if (mobileBlog) mobileBlog.textContent = texts.blog;
     if (mobileContact) mobileContact.textContent = texts.contact;
+   
+    // Force update after a short delay for mobile menu
+    setTimeout(() => {
+        const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
+        const mobileLifestyle = document.querySelector('.mobile-menu-list li:nth-child(2) > a');
+        if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
+        if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
+    }, 100);
+   
    }
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
