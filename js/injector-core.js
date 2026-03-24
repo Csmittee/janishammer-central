@@ -113,7 +113,7 @@
                                         <div class="dropdown-content">
                                             <a href="https://flow.janishammer.com" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
                                             <a href="https://daje.janishammer.com" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                                            <a href="https://i-flexthailand.com" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                                            <a href="https://janishammer.com/iflex.html" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
                                             <a href="https://jade.janishammer.com" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                         <div class="mobile-dropdown">
                             <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
                             <a href="https://daje.janishammer.com" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                            <a href="https://i-flexthailand.com" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                            <a href="https://janishammer.com/iflex.html" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
                             <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
                         </div>
                     </li>
