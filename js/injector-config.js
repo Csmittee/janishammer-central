@@ -371,6 +371,25 @@ window.CURRENT_BRAND = (function() {
             word-break: break-word;
         }
         
+        /* Fix footer social links - remove purple color */
+        .footer-brand .social-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-brand .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-brand .social-links a:visited {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-brand .social-links a:visited:hover {
+            color: var(--secondary);
+        }
+        
         /* ===== MOBILE MENU ===== */
         .mobile-menu {
             display: none;
