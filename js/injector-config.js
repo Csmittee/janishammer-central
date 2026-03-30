@@ -18,7 +18,12 @@ window.BRANDS = {
         tagline: "Lets flow!",
         contactEmail: "info@janishammer.com",
         domain: "flow.janishammer.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" }
+        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
+        line: {
+            qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774899800/Flow_line_OA.png",
+            id: "@972rpdxd",
+            tawk: "https://embed.tawk.to/69cad41511c88e1c41fa3a15/1jl04otbd"
+        }
     },
     jade: {
         name: "Jade Coffee",
@@ -33,7 +38,11 @@ window.BRANDS = {
         tagline: "Taste of heaven",
         contactEmail: "info@janishammer.com",
         domain: "jade.janishammer.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" }
+        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
+        line: {
+            qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774902508/Jade_line_OA.png",
+            id: "@871hcuor"
+        }
     },
     daje: {
         name: "Daje Games",
@@ -48,7 +57,12 @@ window.BRANDS = {
         tagline: "Happiness you can catch",
         contactEmail: "info@janishammer.com",
         domain: "daje.janishammer.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" }
+        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
+        line: {
+            qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774899891/Daje_line_OA.png",
+            id: "@142itevi",
+            tawk: "https://embed.tawk.to/69cad67b942e0d1c35fd0f6a/1jl05bl5c"
+        }
     },
     iflex: {
         name: "I-Flex Pilates",
@@ -389,7 +403,58 @@ window.CURRENT_BRAND = (function() {
         .footer-brand .social-links a:visited:hover {
             color: var(--secondary);
         }
+        /* ===== LINE WIDGET ===== */
+        .footer-line {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
         
+        .footer-line h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .line-qr {
+            width: 100px;
+            height: auto;
+            margin: 0.5rem auto;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .line-chat-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #06C755;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+        
+        .line-chat-btn:hover {
+            transform: translateY(-2px);
+            background: #05b04a;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .line-qr {
+                width: 80px;
+            }
+            .footer-line {
+                flex: 1 1 100%;
+                margin-top: 1rem;
+            }
+        }
+                
         /* ===== MOBILE MENU ===== */
         .mobile-menu {
             display: none;
