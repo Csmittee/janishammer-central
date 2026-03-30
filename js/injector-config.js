@@ -40,7 +40,7 @@ window.BRANDS = {
         domain: "jade.janishammer.com",
         social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
         line: {
-            qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774902508/Jade_line_OA.png",
+            qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774914535/jade_QR_line_OA.png",
             id: "@871hcuor"
         }
     },
