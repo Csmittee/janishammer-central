@@ -321,7 +321,7 @@ window.CURRENT_BRAND = (function() {
             transition: all 0.3s ease;
         }
         
-        /* ===== FOOTER (flex 30% columns, mobile stack) ===== */
+       /* ===== FOOTER ===== */
         .footer {
             background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
@@ -354,13 +354,18 @@ window.CURRENT_BRAND = (function() {
         .footer-line {
             flex: 1;
             min-width: 180px;
+            text-align: center;
+        }
+        
+        .footer-line h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
         }
         
         .footer-links ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            text-align: center;
         }
         
         .footer-links a,
@@ -374,7 +379,6 @@ window.CURRENT_BRAND = (function() {
             max-width: 100%;
             overflow-wrap: break-word;
             line-height: 1.6;
-            text-align: center;
         }
         
         .footer-bottom {
@@ -384,7 +388,7 @@ window.CURRENT_BRAND = (function() {
             word-break: break-word;
         }
         
-        /* Fix footer social links - remove purple color */
+        /* Fix footer social links */
         .footer-brand .social-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -402,18 +406,8 @@ window.CURRENT_BRAND = (function() {
         .footer-brand .social-links a:visited:hover {
             color: var(--secondary);
         }
-        /* ===== LINE WIDGET ===== */
-        .footer-line {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
         
-        .footer-line h4 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        
+        /* LINE Widget */
         .line-qr {
             width: 100px;
             height: auto;
@@ -453,7 +447,6 @@ window.CURRENT_BRAND = (function() {
                 text-align: center;
             }
         }
-                
         /* ===== MOBILE MENU ===== */
         .mobile-menu {
             display: none;
