@@ -21,6 +21,26 @@
         document.head.appendChild(fa);
     }
 
+    function loadTawkTo() {
+        const brand = window.CURRENT_BRAND;
+        const config = window.BRANDS[brand];
+        
+        if (config.line && config.line.tawk) {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = config.line.tawk;
+            script.charset = 'UTF-8';
+            script.setAttribute('crossorigin', '*');
+            document.head.appendChild(script);
+            
+            window.Tawk_API = window.Tawk_API || {};
+            window.Tawk_LoadStart = new Date();
+            console.log(`✅ Tawk.to loaded for ${config.name}`);
+        }
+    }
+
+    
     function initGoogleAnalytics() {
         const GA_ID = 'G-XXXXXXXXXX';
         const script = document.createElement('script');
@@ -197,6 +217,19 @@
                             <p><i class="fas fa-globe"></i> ${config.domain}</p>
                         </div>
                     </div>
+
+                    // LINE QR Section (if configured)
+                    ${config.line && config.line.qr ? `
+                    <div class="footer-line">
+                        <h4><i class="fab fa-line"></i> LINE Official Account</h4>
+                        <img src="${config.line.qr}" alt="LINE QR Code" class="line-qr" loading="lazy">
+                        <p>Scan to add us on LINE</p>
+                        <a href="https://line.me/R/ti/p/${config.line.id}" target="_blank" rel="noopener noreferrer" class="line-chat-btn">
+                            <i class="fab fa-line"></i> Chat on LINE
+                        </a>
+                    </div>
+                    ` : ''}
+
                     <div class="footer-bottom">
                         <p>© ${year} ${config.name} · A Janishammer Brand</p>
                     </div>
@@ -353,7 +386,7 @@
         // Update navbar language and setup switcher
         updateNavbarLanguage();
         setupLanguageSwitcher();
-        
+        loadTawkTo();
         const brand = window.CURRENT_BRAND || 'janishammer';
         console.log(`✅ Core v2.0 loaded for ${window.BRANDS[brand].name}`);
     }
