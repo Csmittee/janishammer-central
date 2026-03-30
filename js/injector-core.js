@@ -216,19 +216,17 @@
                             <p><i class="fas fa-envelope"></i> ${config.contactEmail}</p>
                             <p><i class="fas fa-globe"></i> ${config.domain}</p>
                         </div>
+                        ${config.line && config.line.qr ? `
+                        <div class="footer-line">
+                            <h4><i class="fab fa-line"></i> LINE Official Account</h4>
+                            <img src="${config.line.qr}" alt="LINE QR Code" class="line-qr" loading="lazy">
+                            <p>Scan to add us on LINE</p>
+                            <a href="https://line.me/R/ti/p/${config.line.id}" target="_blank" rel="noopener noreferrer" class="line-chat-btn">
+                                <i class="fab fa-line"></i> Chat on LINE
+                            </a>
+                        </div>
+                        ` : ''}
                     </div>
-
-                    // LINE QR Section (if configured)
-                    ${config.line && config.line.qr ? `
-                    <div class="footer-line">
-                        <h4><i class="fab fa-line"></i> LINE Official Account</h4>
-                        <img src="${config.line.qr}" alt="LINE QR Code" class="line-qr" loading="lazy">
-                        <p>Scan to add us on LINE</p>
-                        <a href="https://line.me/R/ti/p/${config.line.id}" target="_blank" rel="noopener noreferrer" class="line-chat-btn">
-                            <i class="fab fa-line"></i> Chat on LINE
-                        </a>
-                    </div>
-                    ` : ''}
 
                     <div class="footer-bottom">
                         <p>© ${year} ${config.name} · A Janishammer Brand</p>
