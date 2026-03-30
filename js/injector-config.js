@@ -343,19 +343,18 @@ window.CURRENT_BRAND = (function() {
         .footer-content {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
             gap: 2rem;
             margin-bottom: 3rem;
         }
         
         .footer-brand,
         .footer-links,
-        .footer-contact {
-            flex: 1 1 30%;
-            min-width: 200px;
-            word-break: break-word;
-            text-align: center;
-            }
+        .footer-contact,
+        .footer-line {
+            flex: 1;
+            min-width: 180px;
+        }
         
         .footer-links ul {
             list-style: none;
@@ -446,12 +445,12 @@ window.CURRENT_BRAND = (function() {
         }
         
         @media (max-width: 768px) {
-            .line-qr {
-                width: 80px;
-            }
+            .footer-brand,
+            .footer-links,
+            .footer-contact,
             .footer-line {
                 flex: 1 1 100%;
-                margin-top: 1rem;
+                text-align: center;
             }
         }
                 
