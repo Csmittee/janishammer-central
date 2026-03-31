@@ -1,12 +1,30 @@
 // ============================================
-// JANISHAMMER CORE v2.1
+// JANISHAMMER CORE v2.2
 // - Language baked into all navbar hrefs at render time
 // - No redirects, no localStorage loops, no setTimeout patches
 // - Thai persists across all brands and pages automatically
 // - Single source of truth: getCurrentLang() reads URL path
+// - Body hidden until injector finishes — eliminates EN→TH flicker
 // ============================================
 
 (function() {
+    // ===== ANTI-FLICKER: hide body immediately =====
+    // Injected synchronously before any rendering. Body becomes visible only
+    // after init() finishes building and injecting the correct navbar.
+    // Max-wait safety: if init() never completes (e.g. BRANDS not loaded),
+    // the body is force-revealed after 2s so the page is never stuck blank.
+    const antiFlicker = document.createElement('style');
+    antiFlicker.id = 'jh-anti-flicker';
+    antiFlicker.textContent = 'body { opacity: 0 !important; }';
+    document.head.appendChild(antiFlicker);
+
+    function revealBody() {
+        const el = document.getElementById('jh-anti-flicker');
+        if (el) el.remove();
+    }
+
+    // Safety net — never leave the page invisible
+    const safetyReveal = setTimeout(revealBody, 2000);
     // ===== LOAD EXTERNAL ASSETS =====
     function loadAssets() {
         const fonts = document.createElement('link');
@@ -367,6 +385,7 @@
     function init() {
         if (!window.BRANDS) {
             console.error('Janishammer: BRANDS config not loaded.');
+            revealBody(); // don't leave page blank if config missing
             return;
         }
         
@@ -381,8 +400,13 @@
         // Setup language switcher highlight and click handlers
         setupLanguageSwitcher();
         loadTawkTo();
+
+        // Navbar is fully built in correct language — safe to show the page
+        clearTimeout(safetyReveal);
+        revealBody();
+
         const brand = window.CURRENT_BRAND || 'janishammer';
-        console.log(`✅ Core v2.1 loaded for ${window.BRANDS[brand].name}`);
+        console.log(`✅ Core v2.2 loaded for ${window.BRANDS[brand].name}`);
     }
 
     if (document.readyState === 'loading') {
