@@ -271,13 +271,13 @@
     }
 
     // ===== LANGUAGE SWITCHER =====
+// ===== LANGUAGE SWITCHER =====
     function setupLanguageSwitcher() {
         const langEn = document.getElementById('lang-en');
         const langTh = document.getElementById('lang-th');
         const mobileLangEn = document.getElementById('mobile-lang-en');
         const mobileLangTh = document.getElementById('mobile-lang-th');
         
-        // ADD THIS FUNCTION
         function getCurrentLang() {
             return window.location.pathname.startsWith('/th/') ? 'th' : 'en';
         }
@@ -304,51 +304,63 @@
                 mobileLangEn?.classList.remove(activeClass);
             }
         }
-
-        function applyPersistentLanguage() {
-            const storedLang = localStorage.getItem('janishammer_lang');
-            if (!storedLang) return;
-            
-            const currentPath = window.location.pathname;
-            const isThai = currentPath.startsWith('/th/');
-            const currentLang = isThai ? 'th' : 'en';
-            
-            // If already in correct language, do nothing
-            if (storedLang === currentLang) return;
-            
-            // Build new path with correct language prefix
-            let newPath = currentPath;
-            if (storedLang === 'th') {
-                newPath = '/th' + (currentPath === '/' ? '' : currentPath);
-            } else {
-                newPath = currentPath.replace(/^\/th/, '') || '/';
-            }
-            
-            // Redirect to preserve search params and hash
-            window.location.href = newPath + window.location.search + window.location.hash;
-        }
-
-
         
         function switchTo(lang) {
-        // Save to localStorage with domain scope (works across all subdomains)
-        localStorage.setItem('janishammer_lang', lang);
-        
-        let currentPath = window.location.pathname;
-        let newPath = currentPath;
-        
-        if (lang === 'th') {
-            if (!currentPath.startsWith('/th/')) {
-                newPath = '/th' + (currentPath === '/' ? '' : currentPath);
+            // Save to localStorage (works across all subdomains)
+            localStorage.setItem('janishammer_lang', lang);
+            
+            let currentPath = window.location.pathname;
+            let newPath = currentPath;
+            
+            if (lang === 'th') {
+                if (!currentPath.startsWith('/th/')) {
+                    newPath = '/th' + (currentPath === '/' ? '' : currentPath);
+                }
+            } else {
+                if (currentPath.startsWith('/th/')) {
+                    newPath = currentPath.replace(/^\/th/, '') || '/';
+                }
             }
-        } else {
-            if (currentPath.startsWith('/th/')) {
-                newPath = currentPath.replace(/^\/th/, '') || '/';
-            }
+            
+            window.location.href = newPath + window.location.search + window.location.hash;
         }
+        
+        if (langEn && langTh) {
+            updateHighlight();
+            langEn.addEventListener('click', () => switchTo('en'));
+            langTh.addEventListener('click', () => switchTo('th'));
+        }
+        
+        if (mobileLangEn && mobileLangTh) {
+            updateHighlight();
+            mobileLangEn.addEventListener('click', () => switchTo('en'));
+            mobileLangTh.addEventListener('click', () => switchTo('th'));
+        }
+    }
     
-    window.location.href = newPath + window.location.search + window.location.hash;
-}
+    // Add this function AFTER setupLanguageSwitcher (outside of it)
+    function applyPersistentLanguage() {
+        const storedLang = localStorage.getItem('janishammer_lang');
+        if (!storedLang) return;
+        
+        const currentPath = window.location.pathname;
+        const isThai = currentPath.startsWith('/th/');
+        const currentLang = isThai ? 'th' : 'en';
+        
+        // If already in correct language, do nothing
+        if (storedLang === currentLang) return;
+        
+        // Build new path with correct language prefix
+        let newPath = currentPath;
+        if (storedLang === 'th') {
+            newPath = '/th' + (currentPath === '/' ? '' : currentPath);
+        } else {
+            newPath = currentPath.replace(/^\/th/, '') || '/';
+        }
+        
+        // Redirect to preserve search params and hash
+        window.location.href = newPath + window.location.search + window.location.hash;
+    }
     // ===== ADD LANGUAGE SELECTOR STYLES =====
     function addLanguageSelectorStyles() {
         const style = document.createElement('style');
