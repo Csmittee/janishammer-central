@@ -8,22 +8,16 @@
 // ============================================
 
 (function() {
-    // ===== ANTI-FLICKER: hide body immediately =====
-    // Injected synchronously before any rendering. Body becomes visible only
-    // after init() finishes building and injecting the correct navbar.
-    // Max-wait safety: if init() never completes (e.g. BRANDS not loaded),
-    // the body is force-revealed after 2s so the page is never stuck blank.
-    const antiFlicker = document.createElement('style');
-    antiFlicker.id = 'jh-anti-flicker';
-    antiFlicker.textContent = 'body { opacity: 0 !important; }';
-    document.head.appendChild(antiFlicker);
-
+    // ===== ANTI-FLICKER REVEAL =====
+    // The <style id="jh-anti-flicker"> is placed directly in each HTML file
+    // so the page is hidden before any script downloads. This function removes
+    // it once the correct navbar is fully built and injected.
     function revealBody() {
         const el = document.getElementById('jh-anti-flicker');
         if (el) el.remove();
     }
 
-    // Safety net — never leave the page invisible
+    // Safety net — never leave the page invisible if something goes wrong
     const safetyReveal = setTimeout(revealBody, 2000);
     // ===== LOAD EXTERNAL ASSETS =====
     function loadAssets() {
