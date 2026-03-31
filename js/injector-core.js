@@ -276,7 +276,11 @@
         const langTh = document.getElementById('lang-th');
         const mobileLangEn = document.getElementById('mobile-lang-en');
         const mobileLangTh = document.getElementById('mobile-lang-th');
-        const currentPath = window.location.pathname;
+        
+        // ADD THIS FUNCTION
+        function getCurrentLang() {
+            return window.location.pathname.startsWith('/th/') ? 'th' : 'en';
+        }
         
         function updateHighlight() {
             const lang = getCurrentLang();
@@ -302,21 +306,20 @@
         }
         
         function switchTo(lang) {
-            if (lang === 'en') {
-                let newPath = currentPath;
-                if (currentPath.startsWith('/th/')) {
-                    newPath = currentPath.replace(/^\/th\//, '/');
-                } else if (currentPath === '/th') {
-                    newPath = '/';
-                }
-                window.location.href = newPath;
-            } else {
+            let currentPath = window.location.pathname;
+            let newPath = currentPath;
+            
+            if (lang === 'th') {
                 if (!currentPath.startsWith('/th/')) {
-                    window.location.href = '/th' + currentPath;
-                } else {
-                    window.location.href = currentPath;
+                    newPath = '/th' + (currentPath === '/' ? '' : currentPath);
+                }
+            } else {
+                if (currentPath.startsWith('/th/')) {
+                    newPath = currentPath.replace(/^\/th/, '') || '/';
                 }
             }
+            
+            window.location.href = newPath + window.location.search + window.location.hash;
         }
         
         if (langEn && langTh) {
@@ -331,7 +334,6 @@
             mobileLangTh.addEventListener('click', () => switchTo('th'));
         }
     }
-
     // ===== ADD LANGUAGE SELECTOR STYLES =====
     function addLanguageSelectorStyles() {
         const style = document.createElement('style');
