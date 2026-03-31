@@ -439,6 +439,26 @@ window.CURRENT_BRAND = (function() {
         }
         
         /* Floating Cart Button */
+        /* Floating Cart Button */
+        .cart-floating {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+       /* Floating Cart Button - Complete */
         .cart-floating {
             position: fixed;
             bottom: 6rem;
@@ -463,9 +483,9 @@ window.CURRENT_BRAND = (function() {
         
         .cart-floating i {
             font-size: 1.5rem;
-            color: var(--accent);
+            color: white;
         }
-
+        
         .cart-count {
             position: absolute;
             top: -5px;
@@ -481,9 +501,20 @@ window.CURRENT_BRAND = (function() {
             font-size: 0.75rem;
             font-weight: bold;
         }
-
-
-
+        
+        /* Mobile only - fix overlap and size */
+        @media screen and (max-width: 767px) {
+            .cart-floating {
+                bottom: 7rem;
+                right: 1rem;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .cart-floating i {
+                font-size: 1.2rem;
+            }
+        }
         
         @media (max-width: 768px) {
             .footer-brand,
