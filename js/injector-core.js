@@ -1,10 +1,9 @@
 // ============================================
-// JANISHAMMER CORE v2.0
-// - New era: served from assets.janishammer.com
-// - Mobile language selector added to hamburger menu
-// - Mobile menu: "Janis home" / "หน้าแรก" matches desktop
-// - Language selector hover: pointer cursor + scale effect
-// - No version numbers in filenames
+// JANISHAMMER CORE v2.1
+// - Language baked into all navbar hrefs at render time
+// - No redirects, no localStorage loops, no setTimeout patches
+// - Thai persists across all brands and pages automatically
+// - Single source of truth: getCurrentLang() reads URL path
 // ============================================
 
 (function() {
@@ -75,47 +74,35 @@
         return path.startsWith('/th/') ? 'th' : 'en';
     }
 
-   function updateNavbarLanguage() {
-    const lang = getCurrentLang();
-    const texts = translations[lang];
-    
-    // Update desktop menu
-    const janisHomeLink = document.querySelector('.nav-menu a[href="https://janishammer.com"]');
-    const lifestyleLink = document.querySelector('.nav-menu .nav-item > a');
-    const blogLink = document.querySelector('.nav-menu a[href="https://janishammer.com/blog.html"]');
-    const contactLink = document.querySelector('.nav-menu a[href="https://janishammer.com/contact.html"]');
-    
-    if (janisHomeLink) janisHomeLink.textContent = texts.janisHome;
-    if (lifestyleLink) lifestyleLink.innerHTML = texts.lifestyle + ' <i class="fas fa-chevron-down"></i>';
-    if (blogLink) blogLink.textContent = texts.blog;
-    if (contactLink) contactLink.textContent = texts.contact;
-    
-       // Update mobile menu — FIXED SELECTORS
-    const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
-    const mobileLifestyle = document.querySelector('.mobile-menu-list li:nth-child(2) > a');
-    const mobileBlog = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/blog.html"]');
-    const mobileContact = document.querySelector('.mobile-menu-list a[href="https://janishammer.com/contact.html"]');
-    
-    if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
-    if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
-    if (mobileBlog) mobileBlog.textContent = texts.blog;
-    if (mobileContact) mobileContact.textContent = texts.contact;
-   
-    // Force update after a short delay for mobile menu
-    setTimeout(() => {
-        const mobileJanisHome = document.querySelector('.mobile-menu-list a[href="https://janishammer.com"]');
-        const mobileLifestyle = document.querySelector('.mobile-menu-list li:nth-child(2) > a');
-        if (mobileJanisHome) mobileJanisHome.textContent = texts.janisHome;
-        if (mobileLifestyle) mobileLifestyle.textContent = texts.lifestyle;
-    }, 100);
-   
-   }
+    // updateNavbarLanguage() removed — no longer needed.
+    // buildNavbar() now renders all link text AND hrefs in the correct language
+    // at injection time, so there is nothing to patch after the fact.
     function buildNavbar() {
         const brand = window.CURRENT_BRAND || 'janishammer';
         const config = window.BRANDS ? window.BRANDS[brand] : null;
-        
         if (!config) return '';
-        
+
+        // Detect current language from URL — drives ALL link hrefs in this render.
+        // When user is in Thai, every cross-brand and same-brand link already
+        // points to the /th/ version, so language persists through navigation
+        // with zero redirects and zero localStorage dependency.
+        const lang = getCurrentLang();
+        const th = lang === 'th';                 // shorthand boolean
+        const p  = th ? '/th' : '';               // path prefix for same-domain links
+        const s  = th ? '/th/' : '/';             // root suffix for subdomain links
+        const texts = translations[lang];
+
+        // Same-domain links (janishammer.com pages)
+        const homeHref    = `https://janishammer.com${p}/`;
+        const blogHref    = `https://janishammer.com${p}/blog.html`;
+        const contactHref = `https://janishammer.com${p}/contact.html`;
+        const iflexHref   = `https://janishammer.com${p}/iflex.html`;
+
+        // Cross-brand subdomain links — append /th/ when in Thai
+        const flowHref = `https://flow.janishammer.com${s}`;
+        const dajeHref = `https://daje.janishammer.com${s}`;
+        const jadeHref = `https://jade.janishammer.com${s}`;
+
         return `
             <div class="navbar-fixed-wrapper">
                 <nav class="navbar">
@@ -123,26 +110,26 @@
                         <div class="nav-left">
                             <img src="${config.logoLight}" alt="${config.name}">
                         </div>
-                        
+
                         <div class="nav-center">
                             <ul class="nav-menu">
-                                <li><a href="https://janishammer.com" class="nav-link">Janis home</a></li>
+                                <li><a href="${homeHref}" class="nav-link">${texts.janisHome}</a></li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Lifestyle <i class="fas fa-chevron-down"></i></a>
+                                    <a href="#" class="nav-link">${texts.lifestyle} <i class="fas fa-chevron-down"></i></a>
                                     <div class="dropdown">
                                         <div class="dropdown-content">
-                                            <a href="https://flow.janishammer.com" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
-                                            <a href="https://daje.janishammer.com" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                                            <a href="https://janishammer.com/iflex.html" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
-                                            <a href="https://jade.janishammer.com" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                                            <a href="${flowHref}" class="dropdown-item ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                                            <a href="${dajeHref}" class="dropdown-item ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                                            <a href="${iflexHref}" class="dropdown-item ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                                            <a href="${jadeHref}" class="dropdown-item ${brand === 'jade' ? 'current' : ''}">Jade</a>
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="https://janishammer.com/blog.html" class="nav-link">Blog</a></li>
-                                <li><a href="https://janishammer.com/contact.html" class="nav-link">Contact Us</a></li>
+                                <li><a href="${blogHref}" class="nav-link">${texts.blog}</a></li>
+                                <li><a href="${contactHref}" class="nav-link">${texts.contact}</a></li>
                             </ul>
                         </div>
-                        
+
                         <div class="nav-right">
                             <div class="language-selector">
                                 <span id="lang-en" class="lang-option">EN</span> | <span id="lang-th" class="lang-option">TH</span>
@@ -159,18 +146,17 @@
 
             <div class="mobile-menu" id="janishammerMobileMenu">
                 <ul class="mobile-menu-list">
-                    <li><a href="https://janishammer.com" class="mobile-menu-link">Janis home</a></li>
-                    <li><a href="#" class="mobile-menu-link">Lifestyle</a>
+                    <li><a href="${homeHref}" class="mobile-menu-link">${texts.janisHome}</a></li>
+                    <li><a href="#" class="mobile-menu-link">${texts.lifestyle}</a>
                         <div class="mobile-dropdown">
-                            <a href="https://flow.janishammer.com" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
-                            <a href="https://daje.janishammer.com" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
-                            <a href="https://janishammer.com/iflex.html" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
-                            <a href="https://jade.janishammer.com" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
+                            <a href="${flowHref}" class="mobile-dropdown-link ${brand === 'flow' ? 'current' : ''}">Flow</a>
+                            <a href="${dajeHref}" class="mobile-dropdown-link ${brand === 'daje' ? 'current' : ''}">Daje</a>
+                            <a href="${iflexHref}" class="mobile-dropdown-link ${brand === 'iflex' ? 'current' : ''}">I-Flex</a>
+                            <a href="${jadeHref}" class="mobile-dropdown-link ${brand === 'jade' ? 'current' : ''}">Jade</a>
                         </div>
                     </li>
-                    <li><a href="https://janishammer.com/blog.html" class="mobile-menu-link">Blog</a></li>
-                    <li><a href="https://janishammer.com/contact.html" class="mobile-menu-link">Contact Us</a></li>
-                    <!-- Language selector in mobile menu (bottom) -->
+                    <li><a href="${blogHref}" class="mobile-menu-link">${texts.blog}</a></li>
+                    <li><a href="${contactHref}" class="mobile-menu-link">${texts.contact}</a></li>
                     <li class="mobile-language-selector">
                         <div class="mobile-language-options">
                             <span id="mobile-lang-en" class="mobile-lang-option">EN</span> | <span id="mobile-lang-th" class="mobile-lang-option">TH</span>
@@ -271,7 +257,6 @@
     }
 
     // ===== LANGUAGE SWITCHER =====
-// ===== LANGUAGE SWITCHER =====
     function setupLanguageSwitcher() {
         const langEn = document.getElementById('lang-en');
         const langTh = document.getElementById('lang-th');
@@ -338,29 +323,12 @@
         }
     }
     
-    // Add this function AFTER setupLanguageSwitcher (outside of it)
-    function applyPersistentLanguage() {
-        const storedLang = localStorage.getItem('janishammer_lang');
-        if (!storedLang) return;
-        
-        const currentPath = window.location.pathname;
-        const isThai = currentPath.startsWith('/th/');
-        const currentLang = isThai ? 'th' : 'en';
-        
-        // If already in correct language, do nothing
-        if (storedLang === currentLang) return;
-        
-        // Build new path with correct language prefix
-        let newPath = currentPath;
-        if (storedLang === 'th') {
-            newPath = '/th' + (currentPath === '/' ? '' : currentPath);
-        } else {
-            newPath = currentPath.replace(/^\/th/, '') || '/';
-        }
-        
-        // Redirect to preserve search params and hash
-        window.location.href = newPath + window.location.search + window.location.hash;
-    }
+    // applyPersistentLanguage() intentionally removed.
+    // It caused cross-domain redirect loops: switching language on one brand
+    // would force-redirect all other brands to /th/ even when the user hadn't
+    // chosen Thai there. The language switcher handles navigation correctly
+    // by modifying the URL path on explicit user click.
+
     // ===== ADD LANGUAGE SELECTOR STYLES =====
     function addLanguageSelectorStyles() {
         const style = document.createElement('style');
@@ -410,13 +378,11 @@
         initGoogleAnalytics();
         initMobileMenu();
         
-        // Update navbar language and setup switcher
-        updateNavbarLanguage();
+        // Setup language switcher highlight and click handlers
         setupLanguageSwitcher();
-        applyPersistentLanguage();
         loadTawkTo();
         const brand = window.CURRENT_BRAND || 'janishammer';
-        console.log(`✅ Core v2.0 loaded for ${window.BRANDS[brand].name}`);
+        console.log(`✅ Core v2.1 loaded for ${window.BRANDS[brand].name}`);
     }
 
     if (document.readyState === 'loading') {
