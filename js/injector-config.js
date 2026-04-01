@@ -18,7 +18,12 @@ window.BRANDS = {
         tagline: "Lets flow!",
         contactEmail: "info@janishammer.com",
         domain: "flow.janishammer.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
+        social: {
+            facebook: "https://www.facebook.com/janislifestyle",
+            instagram: "https://www.instagram.com/janisflowlifestyle",
+            youtube: "#",
+            tiktok: "#"
+        },
         line: {
             qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774899800/Flow_line_OA.png",
             id: "@972rpdxd",
@@ -57,7 +62,12 @@ window.BRANDS = {
         tagline: "Happiness you can catch",
         contactEmail: "info@janishammer.com",
         domain: "daje.janishammer.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" },
+        social: {
+            facebook: "https://www.facebook.com/dajequeencatcher",
+            instagram: "https://www.instagram.com/dajequeencatcher/",
+            youtube: "#",
+            tiktok: "#"
+        },
         line: {
             qr: "https://res.cloudinary.com/dfiomi0lb/image/upload/v1774899891/Daje_line_OA.png",
             id: "@142itevi",
@@ -77,7 +87,12 @@ window.BRANDS = {
         tagline: "A healthy lifestyle",
         contactEmail: "info@i-flexthailand.com",
         domain: "i-flexthailand.com",
-        social: { facebook: "#", instagram: "#", youtube: "#", tiktok: "#" }
+        social: {
+            facebook: "https://www.facebook.com/iflexthailand",
+            instagram: "https://www.instagram.com/i_flexthai/",
+            youtube: "#",
+            tiktok: "#"
+        }
     },
     janishammer: {
         name: "Janis Hammer",
@@ -607,6 +622,110 @@ window.CURRENT_BRAND = (function() {
             .footer-contact {
                 flex: 1 1 100%;
                 width: 100%;
+            }
+        }
+
+        /* ===== SOCIAL QR SECTION ===== */
+        .social-qr-section {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-qr-section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-qr-section p.qr-subheading {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+        }
+
+        .qr-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .qr-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 1.25rem 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 160px;
+        }
+
+        .qr-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .qr-item img {
+            width: 130px;
+            height: 130px;
+            border-radius: 12px;
+            background: white;
+            padding: 6px;
+            display: block;
+        }
+
+        .qr-item-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .qr-platform {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .qr-handle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .qr-handle:hover {
+            color: var(--secondary);
+        }
+
+        .qr-handle i {
+            margin-right: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .social-qr-section {
+                padding: 1.5rem 1rem;
+            }
+            .qr-item {
+                min-width: 140px;
+                padding: 1rem;
+            }
+            .qr-item img {
+                width: 110px;
+                height: 110px;
             }
         }
     `;
