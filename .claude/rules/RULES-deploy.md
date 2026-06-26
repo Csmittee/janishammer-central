@@ -1,11 +1,18 @@
 # RULES-deploy.md — janishammer-central
-> Version 1.0 — 2026-06-25
-> Changes: Initial creation — 4 starter rules from bootstrap scan
-> Previous: NONE
+> Version 1.1 — 2026-06-26
+> Changes: DEP-5 added — redirect required on any URL change
+> Previous: Version 1.0 — 2026-06-25
 
 ---
 
 ## Deploy Rules (newest at top)
+
+**DEP-5: REDIRECT ON ANY URL CHANGE — PERMANENT (2026-06-26):**
+Any time an HTML file moves to a different path (restructure, rename, folder change),
+add a 301 redirect in _redirects at repo root BEFORE the move is live.
+Format: /old-path.html    /new-path.html    301
+Never move a page without a redirect — breaks bookmarks, Google index, and Airtable links.
+// Justification: Session A (daje restructure) — old product URLs would 404 without _redirects
 
 **DEP-4: WORKER REPO_MAP IS THE DEPLOY ROUTER — PERMANENT (2026-06-25):**
 All content deploys route through the Cloudflare Worker REPO_MAP.
@@ -27,7 +34,7 @@ Script-owned files per repo:
     blog-listing.html, product-listing.html, th/blog-listing.html, th/product-listing.html,
     gallery-data.json, news-data.json, testimonials-data.json, products.json
   janishammer-home: blog/post-*.html, th/blog/post-*.html
-  daje-queencatcher: all product HTML pages at root and th/, products.json
+  daje-queencatcher: product/*.html, th/product/*.html, products.json
   jade-coffee: product HTML pages (when generated), products.json
   janis-flow: product/*.html, th/product/*.html, products.json
 To change output: edit the generator script — never the output file.

@@ -1,7 +1,7 @@
 # WEB_STANDARD.md — janishammer-central
-> Version 1.0 — 2026-06-25 — SKELETON
-> Changes: Initial creation — skeleton only, confirmed values from scan
-> Previous: NONE
+> Version 1.1 — 2026-06-26 — SKELETON (folder structure now CONFIRMED)
+> Changes: Folder Structure Standard confirmed from Session A daje restructure pilot
+> Previous: Version 1.0 — 2026-06-25
 
 ---
 
@@ -23,19 +23,39 @@ Icons:       Font Awesome 6.4.0 (cdnjs.cloudflare.com)
 Chat:        Tawk.to (flow and daje brands)
 
 ## Folder Structure Standard
-Status: [TBD — to be finalised in structure audit session]
-Known debt: HTML files not consistently under /public/ — audit and fix pending.
-Target structure (draft — confirm in audit session):
-  [repo-root]/
-  ├── public/          ← all HTML files live here
-  │   ├── index.html
-  │   ├── th/          ← Thai mirror pages (bilingual sites only)
-  │   ├── blog/        ← generated blog posts
-  │   └── product/     ← generated product pages
-  ├── scripts/         ← Python generators
-  ├── .github/
-  │   └── workflows/   ← GitHub Action YAML files
-  └── data/            ← CSV fallback data (legacy)
+Status: CONFIRMED — 2026-06-26 (piloted on daje-queencatcher)
+
+Standard applies to: janishammer-home, daje-queencatcher, jade-coffee, janis-flow
+Exception: i-flexthailand.com — same pattern, separate session (has JS files in /js/)
+
+```
+[repo-root]/
+├── index.html              ← ALWAYS at root — Cloudflare entry point — NEVER move
+├── pages/                  ← handcrafted non-homepage HTML (contact, about, etc.)
+│   └── [page].html
+├── product/                ← EN generated product pages (generator output only)
+│   └── [slug].html
+├── blog/                   ← EN generated blog posts (generator output only)
+│   └── [slug].html
+├── th/
+│   ├── index.html          ← TH homepage (bilingual sites only) — NEVER move
+│   ├── product/            ← TH generated product pages
+│   │   └── [slug].html
+│   └── blog/               ← TH generated blog posts
+│       └── [slug].html
+├── scripts/                ← Python generators — NOT served by Cloudflare
+├── .github/
+│   └── workflows/          ← GitHub Actions — NOT served by Cloudflare
+└── data/                   ← CSV fallback data — NOT served by Cloudflare
+```
+
+Rules:
+  - index.html: always root, always handcrafted, never generated
+  - pages/: human-written pages only — never generator output
+  - product/ and blog/: generator output only — never hand-edit files here (DEP-2)
+  - scripts/, .github/, data/: never served, never touch in HTML sessions
+  - _redirects: always at root — add redirect when moving any existing page (DEP-5)
+  - products.json / gallery-data.json: always at root — read by index.html JS
 
 ## Injector Standard
 Central injector: janishammer-central/js/

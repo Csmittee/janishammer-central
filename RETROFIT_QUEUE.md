@@ -1,7 +1,7 @@
 # RETROFIT_QUEUE.md — janishammer-central
-> Version 1.0 — 2026-06-25
-> Changes: Initial creation — seeded from bootstrap scan findings
-> Previous: NONE
+> Version 1.1 — 2026-06-26
+> Changes: Session A log entry added
+> Previous: Version 1.0 — 2026-06-25
 
 ---
 
@@ -38,4 +38,8 @@ SKIP        = decided not to apply to this site (add reason in Notes)
 | 12 | Migrate i-flexthailand.com to central injector | Uses standalone fork — updates require two changes instead of one | LOW | QUEUED | N/A | N/A | N/A | N/A | Large work — requires careful bilingual testing |
 
 ## Session Log
+### 2026-06-26 — Session A: daje-queencatcher restructure
+Folder restructure piloted. QA checklist produced. Pending owner QA confirmation.
+Same pattern queued for janis-flow, jade-coffee, janishammer-home (Sessions B, C).
+
 ### 2026-06-25 — Bootstrap: queue created. Seeded from scan findings in KNOWLEDGE_MAP.md. 12 items queued.

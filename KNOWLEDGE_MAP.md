@@ -1,7 +1,7 @@
 # KNOWLEDGE_MAP.md — janishammer-central
-> Version 1.0 — 2026-06-25
-> Changes: Initial creation — bootstrap scan findings
-> Previous: NONE
+> Version 1.1 — 2026-06-26
+> Changes: daje-queencatcher folder structure updated — product pages moved to /product/ and /th/product/
+> Previous: Version 1.0 — 2026-06-25
 
 ---
 
@@ -129,8 +129,9 @@ Provides:
 |------|---------|------------|-----------|--------|
 | index.html | EN homepage — claw machine showcase | assets.janishammer.com injector | 1184L ⚠️ OVER 800 | root |
 | th/index.html | TH homepage mirror | same | — | th/ |
-| *.html (11 product pages) | EN product detail pages (generated) | generate_products.py | — | root |
-| th/*.html (11 TH product pages) | TH product detail pages (generated) | generate_products.py | — | th/ |
+| product/*.html (12 product pages) | EN product detail pages (generated) | generate_products.py | — | product/ |
+| th/product/*.html (12 TH product pages) | TH product detail pages (generated) | generate_products.py | — | th/product/ |
+| _redirects | 301 redirects — old root product URLs → /product/ and /th/product/ | — | — | root |
 | scripts/generate_products.py | Airtable → product HTML | AIRTABLE_TOKEN env | — | scripts/ |
 | products.csv, products.json | Product data | — | — | root |
 | .github/workflows/products-build.yml | GitHub Actions trigger | GitHub Secrets | — | .github/workflows/ |
@@ -184,10 +185,10 @@ HTML files not in /public/: ALL repos — all HTML files are at repo root or in 
 |------|------------------|-------------------|-----------|--------|
 | janishammer-central | js/, doc/, docs/prompts/, .claude/rules/ | governance-only — no public HTML | YES | doc/system.md has placeholder YOUR_USERNAME — outdated |
 | i-flexthailand.com | root HTML, th/, blog/, product/, th/blog/, th/product/, js/, scripts/, data/, .github/ | /public/ standard | NO | All HTML at root — structural debt |
-| janishammer-home | root HTML, th/, blog/, th/blog/, scripts/, .github/ | /public/ standard | NO | All HTML at root |
-| daje-queencatcher | root HTML, th/, scripts/, .github/ | /public/ standard | NO | All HTML at root |
-| jade-coffee | root HTML only, scripts/, .github/ | /public/ standard | NO | All HTML at root; no TH index.html |
-| janis-flow | root HTML, product/, th/, th/product/, scripts/, .github/ | /public/ standard | NO | All HTML at root |
+| janishammer-home | root HTML, th/, blog/, th/blog/, scripts/, .github/ | WEB_STANDARD.md confirmed | NO | index.html at root (correct); blog posts and product pages need restructure (Session B/C) |
+| daje-queencatcher | root HTML, product/, th/, th/product/, scripts/, .github/ | WEB_STANDARD.md confirmed | PENDING QA | index.html at root (correct); product pages → /product/ and /th/product/ — restructured 2026-06-26 |
+| jade-coffee | root HTML only, scripts/, .github/ | WEB_STANDARD.md confirmed | NO | All HTML at root; no TH index.html |
+| janis-flow | root HTML, product/, th/, th/product/, scripts/, .github/ | WEB_STANDARD.md confirmed | YES | Already compliant — product/ and th/product/ in use |
 
 ---
 
@@ -207,7 +208,7 @@ GA ID in i-flexthailand.com/index.html (G-X4ZXYX21PF) is a public measurement ID
 ## SEO Observations
 
 | Repo | Page | Present | Missing |
-|------|------|---------|---------|
+|------|------|---------|--------|
 | i-flexthailand.com | index.html | og:title, og:description, og:image, og:url, og:type, twitter:card, twitter:title, twitter:description, twitter:image, canonical, meta description | schema.org, hreflang |
 | i-flexthailand.com | th/index.html | canonical | og:type, og:title, og:description, og:image, og:url, twitter cards, schema.org, hreflang |
 | i-flexthailand.com | about-us.html | — | canonical, og tags, schema.org |
@@ -226,7 +227,7 @@ Note: OG image used on daje, jade, flow homepages is the brand logo — not a br
 ## Domain Rule Map
 
 | Domain | Rule file | When CC reads it |
-|--------|-----------|-----------------|
+|--------|-----------|------------------|
 | HTML structure, layout, folders | .claude/rules/RULES-html.md | Every HTML session |
 | CSS, styling, variables | .claude/rules/RULES-css.md | Every CSS session |
 | JavaScript, modules, events | .claude/rules/RULES-js.md | Every JS session |
@@ -242,7 +243,7 @@ Note: OG image used on daje, jade, flow homepages is the brand logo — not a br
 ## Document Map
 
 | Document | Location | Who reads it | Frequency |
-|----------|---------|--------------|-----------|
+|----------|---------|--------------|----------|
 | CLAUDE.md | janishammer-central root | CC (mandatory) | Every session start |
 | RULES.md | janishammer-central root | CC (mandatory) | Every session start |
 | CC_SKILL.md | janishammer-central root | CC (mandatory) | Every session start |
