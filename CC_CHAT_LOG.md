@@ -1,7 +1,22 @@
 # CC_CHAT_LOG.md — janishammer-central (governance log)
-> Version 1.0 — 2026-06-25
-> Changes: Initial creation — first entry
-> Previous: NONE
+> Version 1.1 — 2026-06-26
+> Changes: Session A entry added
+> Previous: Version 1.0 — 2026-06-25
+
+---
+
+## 2026-06-26 — CC_SESSION_A_daje_restructure_v1
+**Did:** daje-queencatcher folder restructure — generator output moved to /product/
+         and /th/product/. _redirects added (24 rules: 12 EN + 12 TH). Internal links
+         updated in index.html and th/index.html renderProducts(). generate_products.py
+         clean step fixed (no longer deletes th/index.html).
+**Updated:** RULES-deploy.md (DEP-5 added). WEB_STANDARD.md folder structure confirmed.
+             KNOWLEDGE_MAP.md daje row updated. RETROFIT_QUEUE.md session log added.
+**New files:** _redirects (daje-queencatcher)
+**Pending Chat verify:** Owner runs QA checklist after PR merge. All 6 steps must pass.
+                          Report result before Session B begins.
+**Flags:** RETROFIT CANDIDATE — same restructure pattern queued for janis-flow,
+           jade-coffee, janishammer-home (Sessions B, C). New rule: DEP-5 added to RULES-deploy.md.
 
 ---
 
